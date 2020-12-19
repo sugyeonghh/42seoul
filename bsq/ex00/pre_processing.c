@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pre_processing.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sook-yeon <sook-yeon@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/14 22:51:02 by sook-yeon         #+#    #+#             */
+/*   Updated: 2020/12/20 02:27:28 by sook-yeon        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "s_map.h"
 
@@ -33,6 +45,7 @@ s_map	*ft_pre_process(char *map)
 	int 	y;
 	s_map 	*matrix_map;
 
+	matrix_map = (s_map*)malloc(sizeof(s_map));
 	x = 0;
 	y = 0;
 	while (map[x] != '\n')
