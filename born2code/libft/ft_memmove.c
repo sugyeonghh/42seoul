@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 17:56:21 by shong             #+#    #+#             */
-/*   Updated: 2020/12/24 18:11:59 by shong            ###   ########.fr       */
+/*   Created: 2020/12/23 15:09:23 by shong             #+#    #+#             */
+/*   Updated: 2020/12/25 01:01:02 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*mem;
+	unsigned char	*dst_p;
+	unsigned char	*src_p;
 
-	if (!(mem = malloc(count * size)))
+	if ((!dst && !src) || (dst == src))
 		return (0);
-	ft_bzero(mem, count * size);
-	return ((void *)mem);
+	dst_p = (unsigned char *)dst;
+	src_p = (unsigned char *)src;
+	if (src_p > dst_p)
+		return (ft_memcpy(dst, src, len));
+	while (len--)
+		dst_p[len] = src_p[len];
+	return (dst);
 }

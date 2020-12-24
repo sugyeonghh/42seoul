@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 18:54:45 by shong             #+#    #+#             */
-/*   Updated: 2020/12/22 18:59:29 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/23 13:02:44 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*p;
-	size_t	i;
+	unsigned char	*p;
+	size_t			i;
 
-	p = (char *)s;
+	p = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
@@ -25,5 +25,4 @@ void	ft_bzero(void *s, size_t n)
 		p++;
 		i++;
 	}
-	return (s);
 }

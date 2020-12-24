@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 17:56:21 by shong             #+#    #+#             */
-/*   Updated: 2020/12/24 18:11:59 by shong            ###   ########.fr       */
+/*   Created: 2020/12/25 02:20:06 by shong             #+#    #+#             */
+/*   Updated: 2020/12/25 03:32:09 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*mem;
+	char	*res;
+	int		i;
+	int		idx;
 
-	if (!(mem = malloc(count * size)))
+	if (!s1 || !set)
 		return (0);
-	ft_bzero(mem, count * size);
-	return ((void *)mem);
+	if (!ft_strlen(set))
+		return (ft_strdup(""));
+	while (*s1 == ' ' || *s1 == '\t' || *s1 == '\n')
+		s1++;
+	i = 0;
+	idx = 0;
+	while (s1[i])
+	{
+		if (s1[i] == *set)
+			if (!ft_memcmp(s1 + i, set, ft_strlen(set)))
+				idx += ft_strlen(set);
+		res[idx++] = s1[i++];
+	}
+	res[idx] = 0;
+	return (res);
 }
