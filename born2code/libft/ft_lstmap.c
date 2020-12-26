@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 19:02:38 by shong             #+#    #+#             */
-/*   Updated: 2020/12/26 19:11:09 by shong            ###   ########.fr       */
+/*   Created: 2020/12/27 02:05:59 by shong             #+#    #+#             */
+/*   Updated: 2020/12/27 02:51:12 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned char	*dst_p;
-	unsigned char	*src_p;
-	size_t			i;
+	t_list	*res;
+	t_list	*new;
+	t_list	*p;
 
-	if (!dst && !src)
-		return (0);
-	dst_p = (unsigned char *)dst;
-	src_p = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	res = NULL;
+	p = lst;
+	while (p)
 	{
-		dst_p[i] = src_p[i];
-		i++;
+		if (!(new = ft_lstnew(f(p->content))))
+		{
+			ft_lstclear(&res, del);
+			return (0);
+		}
+		ft_lstadd_back(&res, new);
+		p = p->next;
 	}
-	return (dst);
+	return (res);
 }

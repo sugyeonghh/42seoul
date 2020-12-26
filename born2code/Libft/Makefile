@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/12/24 15:54:46 by shong             #+#    #+#              #
-#    Updated: 2020/12/25 02:48:26 by shong            ###   ########.fr        #
+#    Created: 2020/12/26 23:35:01 by shong             #+#    #+#              #
+#    Updated: 2020/12/27 02:06:39 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,16 +41,16 @@ FILES = ft_memset \
 		ft_tolower \
 		ft_calloc \
 		ft_strdup \
-		ft_putchar_fd \
-		ft_putstr_fd \
-		ft_putendl_fd \
-		ft_putnbr_fd \
 		ft_substr \
 		ft_strjoin \
 		ft_strtrim \
-		# ft_split \
-		# ft_itoa \
-		# ft_strmapi \
+		ft_split \
+		ft_itoa \
+		ft_strmapi \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd
 
 FILES_B = 	ft_lstnew \
 	  		ft_lstadd_front \

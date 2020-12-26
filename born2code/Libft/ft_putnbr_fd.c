@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 16:31:22 by shong             #+#    #+#             */
-/*   Updated: 2020/12/24 17:40:25 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/26 19:50:07 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@ void	ft_putnbr_fd(int n, int fd)
 	if (fd == -1)
 		return ;
 	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n *= -1;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
 	}
 	else if (n > 9)
 	{

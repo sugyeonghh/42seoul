@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:25:47 by shong             #+#    #+#             */
-/*   Updated: 2020/12/24 23:31:23 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/26 15:33:14 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ int		ft_atoi(const char *str)
 	{
 		if (cnt > 20)
 		{
-			if (sign > 0)
-				return (-1);
-			else
-				return (0);
+			num = sign > 0 ? -1 : 0;
+			return (num);
 		}
 		num = num * 10 + (*str++ - 48);
 		cnt++;
