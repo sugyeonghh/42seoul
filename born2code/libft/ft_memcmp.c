@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 16:28:57 by shong             #+#    #+#             */
-/*   Updated: 2020/12/28 19:53:41 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/28 20:13:16 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (0);
 	while (p1[i] == p2[i] && i < n - 1)
 		i++;
-	return ((int)(p1[i] - p2[i]));	
+	return ((int)(p1[i] - p2[i]));
 }

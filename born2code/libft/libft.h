@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 16:32:35 by shong             #+#    #+#             */
-/*   Updated: 2020/12/27 19:04:31 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/28 20:15:24 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
 typedef struct		s_list
 {
 	void			*content;

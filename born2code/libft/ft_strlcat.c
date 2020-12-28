@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 14:08:38 by shong             #+#    #+#             */
-/*   Updated: 2020/12/22 16:11:47 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/28 20:13:56 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	j = 0;
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	if(!dstsize)
+	if (!dstsize)
 		return (src_len);
 	else if (dstsize <= ft_strlen(dst))
 		return (src_len + dstsize);
