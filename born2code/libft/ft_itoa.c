@@ -6,20 +6,20 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 03:32:43 by shong             #+#    #+#             */
-/*   Updated: 2020/12/26 22:07:53 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/28 23:22:32 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_size(long long ln)
+static int		ft_size(long long ln)
 {
 	if (ln < 10)
 		return (1);
 	return (1 + ft_size(ln / 10));
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char		*res;
 	int			size;

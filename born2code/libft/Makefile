@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/12/26 23:35:01 by shong             #+#    #+#              #
-#    Updated: 2020/12/28 19:54:49 by shong            ###   ########.fr        #
+#    Created: 2020/12/28 22:08:33 by shong             #+#    #+#              #
+#    Updated: 2020/12/29 01:48:49 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ FILES_B = 	ft_lstnew \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
+SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B))
 
 OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
@@ -72,7 +72,7 @@ OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 
 
 .c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
