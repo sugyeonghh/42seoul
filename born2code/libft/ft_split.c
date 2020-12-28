@@ -6,12 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:42:39 by shong             #+#    #+#             */
-/*   Updated: 2020/12/28 19:47:49 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/28 19:51:46 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		ft_word_count(char const *s, char c)
 {
