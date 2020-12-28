@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:42:39 by shong             #+#    #+#             */
-/*   Updated: 2020/12/28 20:16:55 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/28 20:24:09 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_word_count(char const *s, char c)
 	return (cnt);
 }
 
-void	ft_free(char **res)
+char	**ft_free(char **res)
 {
 	int		i;
 
@@ -37,6 +37,7 @@ void	ft_free(char **res)
 	while (res[i])
 		free(res[i++]);
 	free(res);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -56,10 +57,7 @@ char	**ft_split(char const *s, char c)
 			while (*s && *s != c)
 				s++;
 			if (!(res[i] = (char *)malloc((s - tmp + 1))))
-			{
-				ft_free(res);
-				return (0);
-			}
+				return (ft_free(res));
 			ft_strlcpy(res[i++], tmp, s - tmp + 1);
 		}
 		else if (*s)
