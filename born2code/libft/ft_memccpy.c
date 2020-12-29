@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 13:27:46 by shong             #+#    #+#             */
-/*   Updated: 2020/12/24 18:07:19 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/29 17:26:07 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 
 	dst_p = (unsigned char *)dst;
 	src_p = (unsigned char *)src;
-	if (dst == src)
+	if (!dst && !src)
 		return (0);
 	i = 0;
 	while (i < n)

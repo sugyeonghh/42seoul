@@ -6,13 +6,13 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 15:52:53 by shong             #+#    #+#             */
-/*   Updated: 2020/12/29 16:42:43 by shong            ###   ########.fr       */
+/*   Updated: 2020/12/29 18:02:35 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		size;
 
