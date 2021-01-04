@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   memmove.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/24 17:24:06 by shong             #+#    #+#             */
-/*   Updated: 2021/01/02 05:18:55 by shong            ###   ########.fr       */
+/*   Created: 2021/01/04 17:46:04 by shong             #+#    #+#             */
+/*   Updated: 2021/01/04 17:49:23 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int main(void)
 {
-	char	*res;
-	size_t	i;
-
-	if (!(res = malloc(len + 1)) || !s)
-		return (0);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	i = 0;
-	while (i < len && s[start + i])
-	{
-		res[i] = s[start + i];
-		i++;
-	}
-	res[i] = 0;
-	return (res);
+	char *a = malloc(1);
+	char *b = "abc";
+	printf("%s \n", memmove(a,b,3));
+	printf("%s \n", memmove(a,b,100000));
+	free(a);
 }

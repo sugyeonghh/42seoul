@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/24 17:24:06 by shong             #+#    #+#             */
-/*   Updated: 2021/01/02 05:18:55 by shong            ###   ########.fr       */
+/*   Created: 2021/01/03 23:15:09 by shong             #+#    #+#             */
+/*   Updated: 2021/01/04 22:04:04 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*res;
-	size_t	i;
+# include <stdlib.h>
+# include <unistd.h>
 
-	if (!(res = malloc(len + 1)) || !s)
-		return (0);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	i = 0;
-	while (i < len && s[start + i])
-	{
-		res[i] = s[start + i];
-		i++;
-	}
-	res[i] = 0;
-	return (res);
-}
+int		get_next_line(int fd, char **line);
+int		ft_strlen(const char *s);
+char	*ft_strjoin(const char *s1, const char *s2, int len);
+int		ft_strchr(const char *s, int c);
+void	ft_bzero(void *s, size_t n);
+
+#endif
