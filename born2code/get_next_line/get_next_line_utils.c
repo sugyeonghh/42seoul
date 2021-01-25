@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 23:17:28 by shong             #+#    #+#             */
-/*   Updated: 2021/01/04 23:29:24 by shong            ###   ########.fr       */
+/*   Updated: 2021/01/04 23:39:21 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ int		ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+int		ft_strchr(const char *s, int c)
+{
+	int		i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (unsigned char)c)
+			return (i);
+		i++;
+	}
+	return (-1);
 }
 
 char	*ft_strjoin(const char *s1, const char *s2, int len)
@@ -36,23 +50,13 @@ char	*ft_strjoin(const char *s1, const char *s2, int len)
 	while (*s1)
 		res[i++] = *s1++;
 	while (j < len)
-		res[i++] = s2[j++];
+	{
+		if (s1[j] != '\n')
+			res[i++] = s2[j];
+		j++;
+	}
 	res[i] = 0;
 	return (res);
-}
-
-int		ft_strchr(const char *s, int c)
-{
-	int		i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (unsigned char)c)
-			return (i);
-		i++;
-	}
-	return (-1);
 }
 
 void	ft_bzero(void *s, size_t n)

@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 23:14:55 by shong             #+#    #+#             */
-/*   Updated: 2021/01/04 23:25:29 by shong            ###   ########.fr       */
+/*   Updated: 2021/01/25 14:08:15 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		get_next_line(int fd, char **line)
 	int				idx;
 	int				isread;
 
-	if (BUFFER_SIZE == 0 || BUFFER_SIZE == -1)
+	if (BUFFER_SIZE <= 0)
 		return (-1);
 	ft_bzero(buf, BUFFER_SIZE);
 	while ((isread = read(fd, buf, BUFFER_SIZE)) > 0)
@@ -36,6 +36,7 @@ int		get_next_line(int fd, char **line)
 		}
 		ft_bzero(buf, BUFFER_SIZE);
 	}
+	printf("tmp: %s, buf: %s\n", tmp, buf);
 	*line = ft_strjoin(tmp, buf, idx);
 	return (!isread ? 0 : -1);
 }
