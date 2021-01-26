@@ -5,55 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/03 23:14:55 by shong             #+#    #+#             */
-/*   Updated: 2021/01/25 14:08:15 by shong            ###   ########.fr       */
+/*   Created: 2021/01/25 16:03:41 by shong             #+#    #+#             */
+/*   Updated: 2021/01/26 18:14:30 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
 #include "get_next_line.h"
+
+
 
 int		get_next_line(int fd, char **line)
 {
-	char			buf[BUFFER_SIZE + 1];
-	static char		*tmp;
-	int				idx;
-	int				isread;
+	char		buf[BUFFER_SIZE + 1];
+	static char	*save;
+	char		*tmp;
+	int			rd_size;
+	int			is_sep;
 
-	if (BUFFER_SIZE <= 0)
+	if (!BUFFER_SIZE)
 		return (-1);
-	ft_bzero(buf, BUFFER_SIZE);
-	while ((isread = read(fd, buf, BUFFER_SIZE)) > 0)
+	while ((rd_size = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
-		if ((idx = ft_strchr(buf, '\n')) == -1)
-			tmp = ft_strjoin(tmp, buf, isread);
+		buf[rd_size] = 0;
+		if (!save)
+			tmp = ft_strdup(buf);
 		else
-		{
-			*line = ft_strjoin(tmp, buf, idx);
-			tmp = ft_strjoin("", buf + idx + 1, BUFFER_SIZE - idx - 1);
-			return (1);
-		}
-		ft_bzero(buf, BUFFER_SIZE);
+			tmp = ft_strjoin(save, buf);
+		if (!tmp)
+			return (-1);
+		is_sep = ft_separate(line, &save, tmp);
+		free(tmp);
+		if (is_sep)
+			return (is_sep);
 	}
-	printf("tmp: %s, buf: %s\n", tmp, buf);
-	*line = ft_strjoin(tmp, buf, idx);
-	return (!isread ? 0 : -1);
-}
-
-int		main(void)
-{
-	char *line = 0;
-	int ret;
-	int fd;
-
-	fd = open("test.txt", O_RDONLY);
-	while ((ret = get_next_line(fd, &line)) > 0)
-	{
-		printf("line: %s\n", line);
-		free(line);
-	}
-	printf("line: %s\n", line);
-	free(line);
 	return (0);
 }

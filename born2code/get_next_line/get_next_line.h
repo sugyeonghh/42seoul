@@ -5,21 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/03 23:15:09 by shong             #+#    #+#             */
-/*   Updated: 2021/01/04 22:04:04 by shong            ###   ########.fr       */
+/*   Created: 2021/01/25 16:03:52 by shong             #+#    #+#             */
+/*   Updated: 2021/01/25 18:16:47 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdlib.h>
-# include <unistd.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 int		get_next_line(int fd, char **line);
-int		ft_strlen(const char *s);
-char	*ft_strjoin(const char *s1, const char *s2, int len);
-int		ft_strchr(const char *s, int c);
-void	ft_bzero(void *s, size_t n);
+size_t	ft_strlen(const char *s);
+int		ft_find_newline(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s1);
+int		ft_separate(char **line, char **save, char *tmp);
 
 #endif
