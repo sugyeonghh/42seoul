@@ -6,13 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:03:41 by shong             #+#    #+#             */
-/*   Updated: 2021/01/27 21:30:54 by shong            ###   ########.fr       */
+/*   Updated: 2021/01/27 22:01:33 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-
 
 int		get_next_line(int fd, char **line)
 {

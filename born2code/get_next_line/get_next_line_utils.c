@@ -6,12 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:03:38 by shong             #+#    #+#             */
-/*   Updated: 2021/01/27 21:42:02 by shong            ###   ########.fr       */
+/*   Updated: 2021/01/27 22:02:07 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 size_t	ft_strlen(const char *s)
 {
@@ -81,7 +80,7 @@ int		ft_separate(char **line, char **save, int rd_size)
 {
 	int		idx;
 	char	*tmp;
-	
+
 	tmp = ft_strdup(*save);
 	free(*save);
 	if ((idx = ft_find_newline(tmp)) > -1)
