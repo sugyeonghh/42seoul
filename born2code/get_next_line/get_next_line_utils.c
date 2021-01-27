@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:03:38 by shong             #+#    #+#             */
-/*   Updated: 2021/01/27 22:02:07 by shong            ###   ########.fr       */
+/*   Updated: 2021/01/27 22:04:20 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ size_t	ft_strlen(const char *s)
 
 int		ft_find_newline(const char *s)
 {
-	int		i;
-	
+	int	i;
+
 	i = 0;
 	while (s[i])
 	{
