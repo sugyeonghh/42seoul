@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:03:41 by shong             #+#    #+#             */
-/*   Updated: 2021/01/27 23:01:49 by shong            ###   ########.fr       */
+/*   Updated: 2021/01/27 23:10:39 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 # ifndef OPEN_MAX
-#  define OPEN_MAX 2560
+#  define OPEN_MAX 256
 # endif
 
 int		get_next_line(int fd, char **line);
