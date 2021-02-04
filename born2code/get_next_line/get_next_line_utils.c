@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:03:38 by shong             #+#    #+#             */
-/*   Updated: 2021/01/27 22:04:20 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/05 01:48:20 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int		ft_separate(char **line, char **save, int rd_size)
 	if (!rd_size)
 	{
 		*line = ft_strdup(tmp);
-		*save = ft_strdup("");
+		*save = 0;
 	}
 	else
 		*save = ft_strdup(tmp);
