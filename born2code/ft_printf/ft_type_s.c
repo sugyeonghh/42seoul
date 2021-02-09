@@ -5,14 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:18 by shong             #+#    #+#             */
-/*   Updated: 2021/02/06 20:14:11 by shong            ###   ########.fr       */
+/*   Created: 2021/02/08 17:54:01 by shong             #+#    #+#             */
+/*   Updated: 2021/02/08 18:08:01 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_type_s()
+int		ft_type_s(va_list ap, t_flag *flags)
 {
-	
+	flags->dot = 0;
+	ft_putstr_fd(va_arg(ap, char *), 1);
+
+
+
+
+
+
+	return (1);
 }

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/22 18:13:38 by shong             #+#    #+#             */
+/*   Updated: 2020/12/28 20:13:43 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+char	*ft_strdup(const char *s1)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
+	char	*tmp;
+	int		len;
+	int		i;
 
-	
-	
-	
-	
-	
-	
-	return (0);
+	len = ft_strlen(s1);
+	if (!(tmp = malloc(sizeof(char) * (len + 1))))
+		return (0);
+	i = 0;
+	while (i < len)
+	{
+		tmp[i] = s1[i];
+		i++;
+	}
+	tmp[i] = 0;
+	return (tmp);
 }

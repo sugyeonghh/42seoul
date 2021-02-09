@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/22 16:12:28 by shong             #+#    #+#             */
+/*   Updated: 2020/12/24 22:40:48 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
-
-	
-	
-	
-	
-	
-	
+	if (!*needle)
+		return ((char *)haystack);
+	while (*haystack && len-- >= ft_strlen(needle))
+	{
+		if (*haystack == *needle)
+		{
+			if (!ft_memcmp(haystack, needle, ft_strlen(needle)))
+				return ((char *)haystack);
+		}
+		haystack++;
+	}
 	return (0);
 }

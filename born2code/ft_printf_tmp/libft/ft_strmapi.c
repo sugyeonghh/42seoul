@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/26 22:11:28 by shong             #+#    #+#             */
+/*   Updated: 2020/12/26 22:28:58 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
+	char			*res;
+	unsigned int	i;
 
-	
-	
-	
-	
-	
-	
-	return (0);
+	if (!s || !f)
+		return (0);
+	if (!(res = malloc(ft_strlen(s) + 1)))
+		return (0);
+	i = -1;
+	while (++i < ft_strlen(s))
+		res[i] = f(i, s[i]);
+	res[i] = 0;
+	return (res);
 }

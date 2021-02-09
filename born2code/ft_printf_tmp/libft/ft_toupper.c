@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/22 17:35:20 by shong             #+#    #+#             */
+/*   Updated: 2020/12/28 19:54:36 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+int		ft_toupper(int c)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
-
-	
-	
-	
-	
-	
-	
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 02:10:51 by shong             #+#    #+#              #
-#    Updated: 2021/02/08 23:45:15 by shong            ###   ########.fr        #
+#    Updated: 2021/02/06 23:00:38 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,9 @@ RM = rm -f
 
 FILES = ft_printf \
 		ft_type_c \
-		ft_type_s \
 		ft_type_p \
-		ft_type_num \
-		ft_type_mod \
+
+		
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
@@ -37,7 +36,7 @@ OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 	$(CC) $(SRCS) -L./libft -lft 
-	./a.out
+	./a.out | cat -e
 
 all: $(NAME)
 

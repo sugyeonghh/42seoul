@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/22 14:37:32 by shong             #+#    #+#             */
+/*   Updated: 2020/12/24 18:24:55 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+char	*ft_strchr(const char *s, int c)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
-
-	
-	
-	
-	
-	
-	
-	return (0);
+	while (*s)
+	{
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
+	}
+	return ((c == 0) ? (char *)s : 0);
 }

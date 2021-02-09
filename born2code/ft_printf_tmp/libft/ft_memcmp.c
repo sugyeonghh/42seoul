@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/23 16:28:57 by shong             #+#    #+#             */
+/*   Updated: 2020/12/28 20:13:16 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
+	unsigned char	*p1;
+	unsigned char	*p2;
+	size_t			i;
 
-	
-	
-	
-	
-	
-	
-	return (0);
+	p1 = (unsigned char*)s1;
+	p2 = (unsigned char*)s2;
+	i = 0;
+	if ((p1 == p2) || !n)
+		return (0);
+	while (p1[i] == p2[i] && i < n - 1)
+		i++;
+	return ((int)(p1[i] - p2[i]));
 }

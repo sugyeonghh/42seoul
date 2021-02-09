@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/23 15:09:23 by shong             #+#    #+#             */
+/*   Updated: 2020/12/30 05:48:36 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
+	unsigned char	*dst_p;
+	unsigned char	*src_p;
 
-	
-	
-	
-	
-	
-	
-	return (0);
+	if ((!dst && !src) || (dst == src))
+		return (0);
+	dst_p = (unsigned char *)dst;
+	src_p = (unsigned char *)src;
+	if (src_p > dst_p)
+		return (ft_memcpy(dst, src, len));
+	while (len--)
+		dst_p[len] = src_p[len];
+	return (dst);
 }

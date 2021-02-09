@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_type_c.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2021/02/06 17:47:31 by shong             #+#    #+#             */
+/*   Updated: 2021/02/07 23:07:28 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+int		ft_type_c(t_flag *flags, va_list ap)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
+	int	size;
 
-	
-	
-	
-	
-	
-	
-	return (0);
+	if (!(flags->width) && flags->star)
+		flags->width = va_arg(ap, int);
+	size = flags->width;
+	if (!(flags->minus))
+	{
+		while (size-- > 1)
+			ft_putchar_fd(' ', 1);
+		ft_putchar_fd(va_arg(ap, int), 1);
+	}
+	else
+	{
+		ft_putchar_fd(va_arg(ap, int), 1);
+		while (size-- > 1)
+			ft_putchar_fd(' ', 1);
+	}
+	return (flags->width);
 }

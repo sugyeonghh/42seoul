@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/24 17:24:06 by shong             #+#    #+#             */
+/*   Updated: 2021/01/02 05:18:55 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
+	char	*res;
+	size_t	i;
 
-	
-	
-	
-	
-	
-	
-	return (0);
+	if (!(res = malloc(len + 1)) || !s)
+		return (0);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	i = 0;
+	while (i < len && s[start + i])
+	{
+		res[i] = s[start + i];
+		i++;
+	}
+	res[i] = 0;
+	return (res);
 }

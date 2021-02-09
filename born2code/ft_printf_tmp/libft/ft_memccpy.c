@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_p.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Created: 2020/12/23 13:27:46 by shong             #+#    #+#             */
+/*   Updated: 2020/12/29 17:26:07 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
+	unsigned char	*dst_p;
+	unsigned char	*src_p;
+	size_t			i;
 
-	
-	
-	
-	
-	
-	
+	dst_p = (unsigned char *)dst;
+	src_p = (unsigned char *)src;
+	if (!dst && !src)
+		return (0);
+	i = 0;
+	while (i < n)
+	{
+		dst_p[i] = src_p[i];
+		if (!src_p[i])
+			break ;
+		if (src_p[i] == (unsigned char)c)
+			return (dst + i + 1);
+		i++;
+	}
 	return (0);
 }

@@ -5,117 +5,111 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 16:20:40 by shong             #+#    #+#             */
-/*   Updated: 2021/02/06 23:00:13 by shong            ###   ########.fr       */
+/*   Created: 2021/02/08 15:17:16 by shong             #+#    #+#             */
+/*   Updated: 2021/02/09 15:33:12 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	flag_init(t_flag *flags)
+void	ft_flag_init(t_flag *flags)
 {
-	flags->star = 0;
-	flags->dot = 0;
-	flags->width = 0;
-	flags->zero = 0;
 	flags->minus = 0;
-	flags->pre = 0;
+	flags->zero = 0;
+	flags->dot = 0;
+	flags->star = 0;
+	flags->width = 0;
+	flags->prec = 0;
 }
 
-int		ft_treatment(int c, t_flag *flags, va_list ap)
+int		ft_print_type(char format, va_list ap)
 {
-	if (c == 'c')
-		return (ft_type_c(flags, ap));
-	else if (c == 'p')
-		return (ft_type_p(flags, ap));
+	t_flag	flags;
 
+	if (format == 'c')
+		return (ft_type_c(ap, &flags));
+	else if (format == 's')
+		return (ft_type_s(ap, &flags));
+	else if (format == 'p')
+		return (ft_type_p(ap, &flags));
+	else if (ft_strchr("diuxX", format))
+		return (ft_type_num(ap, &flags));
+	else if (format == '%')
+		return (ft_type_mod(ap, &flags));
 	return (0);
-}
-
-int		ft_flag_parse(const char *save, int i, t_flag *flags)
-{
-	while (save[i])
-	{
-		if (!ft_isdigit(save[i]) && !ft_strchr("-0.*", save[i]) && 
-											!ft_strchr("cspdiuxX%",save[i]))
-			break ;
-		if (save[i] == '0')
-			flags->zero = 1;
-		else if (save[i] == '.')
-			flags->dot = 1;
-		else if (save[i] == '-')
-			flags->minus = 1;
-		else if (save[i] == '*')
-			flags->star = 1;
-		else if (ft_isdigit(save[i]))
-		{
-			if (!(flags->dot))
-				flags->width = (flags->width) * 10 + save[i];
-			else
-				flags->pre = (flags->pre) * 10 + save[i];
-		}
-		else if (ft_strchr("cspdiuxX", save[i]))
-			return (i);
-		i++;
-	}
-	return (i);
-}
-
-int		ft_treat_save(const char *save, va_list ap)
-{
-	int		i;
-	int		return_value;
-	t_flag	flag_info;
-
-	i = 0;
-	return_value = 0;
-	while (save[i])
-	{
-		flag_init(&flag_info);
-		if (save[i] == '%' && save[i + 1] != 0)
-		{
-			i = ft_flag_parse(save, i, &flag_info);
-			if (ft_strchr("cspdiuxX%", save[i]))
-				return_value += ft_treatment(save[i], &flag_info, ap);
-			else if (save[i])
-			{
-				return_value += 1;
-				ft_putchar_fd(save[i], 1);
-			}
-		}
-		else if (save[i] != '%')
-		{
-			return_value += 1;
-			ft_putchar_fd(save[i], 1);
-		}
-		i++;
-	}
-	return (return_value);
 }
 
 int		ft_printf(const char *format, ...)
 {
-	const char	*save;
-	va_list		ap;
-	int			return_value;
+	va_list	ap;
+	int		size;
 
-	return_value = 0;
-	save = ft_strdup(format);
+	size = 0;
 	va_start(ap, format);
-	return_value += ft_treat_save(save, ap);
+	while (*format)
+	{
+		if (*format == '%')
+			size += ft_print_type(*++format, ap);
+		else
+		{
+			ft_putchar_fd(*format, 1);
+			size++;
+		}
+		format++;
+	}
 	va_end(ap);
-	free((char*)save);
-	return (return_value);
+	return (size);
 }
 
-int main(void)
+int		main(void)
 {
-	int a = 10;
-	ft_printf("c: %5c\n", 'a');
-	printf("c: %5c\n", 'a');
-	// ft_printf("p: %p\n", &a);
-	// printf("p: %p\n", &a);
-	// ft_printf("%%: %%\n");
-	// printf("%%: %%\n");
+	// c
+	printf("========== type c ==========\n");
+	printf(", size: %d\n", printf("%c",'a'));
+	printf(", size: %d\n", ft_printf("%c",'a'));
+	
+	// s
+	printf("========== type s ==========\n");
+	printf(", size: %d\n", printf("%s", "abcde"));
+	printf(", size: %d\n", ft_printf("%s", "abcde"));
 
+	// p
+	printf("========== type p ==========\n");
+	printf(", size: %d\n", printf("%p", 0x101132f47));
+	printf(", size: %d\n", ft_printf("%p", 0x101132f47));
+	
+//	printf(", size; %d\n", printf("today is %-10.3dth.", 6));
+/*	// d
+	printf("========== type d ==========\n");
+	printf(", size: %d\n", printf("%d", 23452));
+	printf(", size: %d\n", ft_printf("%d", 23452));
+
+	// i
+	printf("========== type i ==========\n");
+	printf(", size: %d\n", printf("%i", 23452));
+	printf(", size: %d\n", ft_printf("%i", 23452));
+
+	// u
+	printf("========== type u ==========\n");
+	printf(", size: %d\n", printf("%u", 23452));
+	printf(", size: %d\n", ft_printf("%u", 23452));
+*/
+	// x
+	printf("========== type x ==========\n");
+	printf(", size: %d\n", printf("%x", 113801));
+//	printf(", size: %d\n", ft_printf("%x", 113801));
+/*	
+	// X
+	printf("========== type X ==========\n");
+	printf(", size: %d\n", printf("%X", 113801));
+	printf(", size: %d\n", ft_printf("%X", 113801));
+
+*/
+	// %
+	printf("========== type %% ==========\n");
+	printf(", size: %d\n", printf("%%"));
+	printf(", size: %d\n", ft_printf("%%"));
+
+	
+	return (0);
 }

@@ -5,31 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 17:47:31 by shong             #+#    #+#             */
-/*   Updated: 2021/02/07 23:07:28 by shong            ###   ########.fr       */
+/*   Created: 2021/02/08 16:38:52 by shong             #+#    #+#             */
+/*   Updated: 2021/02/09 16:07:25 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_type_c(t_flag *flags, va_list ap)
+int		ft_type_c(va_list ap, t_flag *flags)
 {
-	int	size;
+	
+	
+	ft_putchar_fd(va_arg(ap, int), 1);
+	
 
-	if (!(flags->width) && flags->star)
-		flags->width = va_arg(ap, int);
-	size = flags->width;
-	if (!(flags->minus))
-	{
-		while (size-- > 1)
-			ft_putchar_fd(' ', 1);
-		ft_putchar_fd(va_arg(ap, int), 1);
-	}
-	else
-	{
-		ft_putchar_fd(va_arg(ap, int), 1);
-		while (size-- > 1)
-			ft_putchar_fd(' ', 1);
-	}
-	return (flags->width);
+
+
+
+
+	return (1);
 }
