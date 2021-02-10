@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_mod.c                                      :+:      :+:    :+:   */
+/*   ft_str_filled_with_c.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 21:38:46 by shong             #+#    #+#             */
-/*   Updated: 2021/02/08 23:51:53 by shong            ###   ########.fr       */
+/*   Created: 2021/02/10 04:15:51 by shong             #+#    #+#             */
+/*   Updated: 2021/02/10 07:20:26 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_type_mod(va_list ap)
+char	*ft_str_filled_with(char c, int len)
 {
-	ft_putchar_fd('%', 1);
-	return (1);
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * len + 1);
+	ft_memset(str, c, len);
+	str[len] = 0;
+	return (str);
 }

@@ -6,23 +6,62 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/09 01:15:16 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/10 08:39:38 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_type_p(va_list ap, t_flag *flags)
+static char	*ft_get_result_p(char *address, t_flag *flags)
 {
-	flags->dot = 0;
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ull(va_arg(ap, unsigned long long), "0123456789abcdef");
+	char	*res;
+	char	*space;
 
-	
-	
-	
-	
-	
-	
-	return (0);
+	if (flags->width <= (int)ft_strlen(address))
+		return (address);
+	space = ft_str_filled_with(' ', flags->width - (int)ft_strlen(address));
+	if (flags->minus)
+		res = ft_strjoin(address, space);
+	else
+		res = ft_strjoin(space, address);
+	free(address);
+	free(space);
+	return (res);
+}
+
+static char	*ft_get_address(unsigned long long nbr, t_flag *flags)
+{
+	unsigned long long	tmp;
+	int 				nbr_len;
+	char				*base;
+	char				*address;
+
+	base = "0123456789abcdef";
+	tmp = nbr;
+	nbr_len = 0;
+	while (tmp)
+	{
+		nbr_len++;
+		tmp /= 16;
+	}
+	address = (char *)malloc(sizeof(char) * nbr_len + 3);
+	address[0] = '0';
+	address[1] = 'x';
+	address[nbr_len + 2] = 0;
+	while (nbr_len--)
+	{
+		address[nbr_len + 2] = base[nbr % 16];
+		nbr /= 16;
+	}
+	return (ft_get_result_p(address, flags));
+}
+
+int			ft_type_p(unsigned long long nbr, t_flag *flags)
+{
+	char	*res;
+
+	res = ft_get_address(nbr, flags);
+	ft_putstr_fd(res, 1);
+	free(res);
+	return (ft_strlen(res));
 }

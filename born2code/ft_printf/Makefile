@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 02:10:51 by shong             #+#    #+#              #
-#    Updated: 2021/02/08 23:45:15 by shong            ###   ########.fr        #
+#    Updated: 2021/02/10 08:57:54 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,13 @@ AR = ar rcs
 RM = rm -f
 
 FILES = ft_printf \
+		ft_print_type \
+		ft_str_filled_with \
 		ft_type_c \
-		ft_type_s \
 		ft_type_p \
-		ft_type_num \
-		ft_type_mod \
+		ft_type_s \
+		ft_type_di \
+		ft_type_uxX \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
@@ -32,21 +34,23 @@ OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
 
 .c.o: $(SRCS)
-	$(CC) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
+	make -C libft
+	cp libft/libft.a $(NAME)
 	$(AR) $@ $^
-	$(CC) $(SRCS) -L./libft -lft 
-	./a.out
 
 all: $(NAME)
 
 clean:
+	make clean -C libft 
 	$(RM) $(OBJS) $(NAME)
 
 fclean: clean
+	make fclean -C libft
 	$(RM) $(NAME)
 
 re: clean all
 
-.PHONY: bonus all clean fclean re
+.PHONY: all clean fclean re

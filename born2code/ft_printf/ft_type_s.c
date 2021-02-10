@@ -6,21 +6,46 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:54:01 by shong             #+#    #+#             */
-/*   Updated: 2021/02/08 18:08:01 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/10 08:40:02 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_type_s(va_list ap, t_flag *flags)
+static char	*ft_get_result_s(char *str, t_flag *flags)
 {
-	flags->dot = 0;
-	ft_putstr_fd(va_arg(ap, char *), 1);
+	char	*res;
+	char	*space;
 
+	if (flags->width <= (int)ft_strlen(str))
+		return (str);
+	space = ft_str_filled_with(' ', flags->width - (int)ft_strlen(str));
+	if (flags->minus)
+		res = ft_strjoin(str, space);
+	else
+		res = ft_strjoin(space, str);
+	free(str);
+	free(space);
+	return (res);
+}
 
+static char	*ft_get_str(const char *s, t_flag *flags)
+{
+	char	*str;
 
+	if (!(flags->prec) || flags->prec >= (int)ft_strlen(s))
+		return (ft_get_result_s(ft_strdup(s), flags));
+	str = (char *)malloc(sizeof(char) * flags->prec + 1);
+	ft_strlcpy(str, s, flags->prec + 1);
+	return (ft_get_result_s(str, flags));
+}
 
+int			ft_type_s(const char *s, t_flag *flags)
+{
+	char	*res;
 
-
-	return (1);
+	res = ft_get_str(s, flags);
+	ft_putstr_fd(res, 1);
+	free(res);
+	return (ft_strlen(res));
 }
