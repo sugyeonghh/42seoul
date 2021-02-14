@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 19:04:47 by shong             #+#    #+#             */
-/*   Updated: 2021/02/10 08:39:13 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/15 01:55:04 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static char	*ft_get_result_di(char *nbr_di, t_flag *flags)
 
 	if (flags->width <= (int)ft_strlen(nbr_di))
 		return (nbr_di);
-
 	if (flags->zero && !flags->minus)
 		expand = ft_str_filled_with('0', flags->width - (int)ft_strlen(nbr_di));
 	else
@@ -38,7 +37,9 @@ static char	*ft_get_nbr_di(int nbr, t_flag *flags)
 	char	*nbr_di;
 	char	*zero;
 	char	*nbr_di_prec;
-
+	
+	if (flags->dot && !flags->prec && !nbr)
+		return (ft_get_result_di(ft_strdup(""), flags));
 	nbr_di = ft_itoa(nbr);
 	if (flags->prec <= (int)ft_strlen(nbr_di))
 		return (ft_get_result_di(nbr_di, flags));
@@ -52,9 +53,11 @@ static char	*ft_get_nbr_di(int nbr, t_flag *flags)
 int			ft_type_di(int nbr, t_flag *flags)
 {
 	char	*res;
+	int		res_size;
 
 	res = ft_get_nbr_di(nbr, flags);
-	ft_putstr_fd(res, 1);
+	res_size = ft_strlen(res);
+	write(1, res, res_size);
 	free(res);
-	return (ft_strlen(res));
+	return (res_size);
 }

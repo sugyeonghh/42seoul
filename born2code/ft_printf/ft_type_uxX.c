@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 06:29:05 by shong             #+#    #+#             */
-/*   Updated: 2021/02/10 08:40:36 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/15 00:21:33 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ static char	*ft_get_nbr_uxX(const char format, unsigned int nbr, t_flag *flags)
 		base = "0123456789abcdef";
 	else
 		base = "0123456789ABCDEF";
+	if (flags->dot && !flags->prec && !nbr)
+		return (ft_get_result_uxX(ft_strdup(""), flags));
 	nbr_uxX = ft_uitoa_base(nbr, base);
 	if (flags->prec <= (int)ft_strlen(nbr_uxX))
 		return (ft_get_result_uxX(nbr_uxX, flags));
@@ -84,9 +86,11 @@ static char	*ft_get_nbr_uxX(const char format, unsigned int nbr, t_flag *flags)
 int			ft_type_uxX(const char format, unsigned int nbr, t_flag *flags)
 {
 	char	*res;
+	int		res_size;
 
 	res = ft_get_nbr_uxX(format, nbr, flags);
+	res_size = ft_strlen(res);
 	ft_putstr_fd(res, 1);
 	free(res);
-	return (ft_strlen(res));
+	return (res_size);
 }

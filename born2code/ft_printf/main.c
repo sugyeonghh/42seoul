@@ -1,9 +1,15 @@
+// main
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int		main(void)
 {
-	// c
+
+	printf(", size: %d\n", printf("%.*d", 4, -12));
+	printf(", size: %d\n", ft_printf("%.*d", 4, -12));
+
+/*	// c
 	printf("========== type c ==========\n");
 	printf(", size: %d\n", printf("hello %c world!",'a'));
 	printf(", size: %d\n", ft_printf("hello %c world!",'a'));
@@ -19,7 +25,7 @@ int		main(void)
 	printf(", size: %d\n", ft_printf("%-c", '0'));
 
 	
-/*	// s
+	// s
 	printf("========== type s ==========\n");
 	printf(", size: %d\n", printf("%s", "abcde"));
 	printf(", size: %d\n", ft_printf("%s", "abcde"));
@@ -65,8 +71,6 @@ int		main(void)
 	printf(", size: %d\n", ft_printf("%010d", 23452));
 	printf(", size: %d\n", printf("%-010d", 23452));
 	printf(", size: %d\n", ft_printf("%-010d", 23452));
-
-
 
 
 	// i
@@ -132,8 +136,6 @@ int		main(void)
 	printf(", size: %d\n", ft_printf("%3.4X", 113801));
 	printf(", size: %d\n", printf("%-10.6X", 113801));
 	printf(", size: %d\n", ft_printf("%-10.6X", 113801));
-
-
 
 	// %
 	printf("========== type %% ==========\n");

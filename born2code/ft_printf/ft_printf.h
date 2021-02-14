@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:09:43 by shong             #+#    #+#             */
-/*   Updated: 2021/02/10 08:38:18 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/15 00:30:36 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FT_PRINTF_H
 
 # include "./libft/libft.h"
-# include <stdio.h>
 # include <stdarg.h>
+# include <stdio.h>
 
 typedef struct	t_flag
 {

@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/10 08:39:38 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/11 19:38:03 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,11 @@ static char	*ft_get_address(unsigned long long nbr, t_flag *flags)
 int			ft_type_p(unsigned long long nbr, t_flag *flags)
 {
 	char	*res;
+	int		res_size;
 
 	res = ft_get_address(nbr, flags);
+	res_size = ft_strlen(res);
 	ft_putstr_fd(res, 1);
 	free(res);
-	return (ft_strlen(res));
+	return (res_size);
 }

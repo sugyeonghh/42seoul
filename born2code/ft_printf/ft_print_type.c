@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:47:31 by shong             #+#    #+#             */
-/*   Updated: 2021/02/10 08:37:52 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/15 01:21:17 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,21 @@ static void	ft_flag_init(t_flag *flags)
 	flags->prec = 0;
 }
 
-static int	ft_get_width_or_prec(char **format, va_list ap)
+static int	ft_get_width_or_prec(char **format, va_list ap, t_flag *flags)
 {
 	int		nbr;
 
 	if (**format == '*')
+	{
 		nbr = va_arg(ap, int);
+		if (nbr < 0)
+		{
+			if (flags->dot)
+				return (flags->dot = 0);
+			flags->minus = 1;
+			nbr *= -1;
+		}
+	}
 	else
 	{
 		nbr = 0;
@@ -46,16 +55,16 @@ static void	ft_flag_parse(char **format, va_list ap, t_flag *flags)
 	{
 		if (**format == '-')
 			flags->minus = 1;
-		else if (**format == '0')
+		else if (!flags->dot && **format == '0')
 			flags->zero = 1;
 		else if (**format == '.')
 			flags->dot = 1;
 		else if (ft_isdigit(**format) || **format == '*')
 		{
 			if (!(flags->dot))
-				flags->width = ft_get_width_or_prec(format, ap);
+				flags->width = ft_get_width_or_prec(format, ap, flags);
 			else
-				flags->prec = ft_get_width_or_prec(format, ap);
+				flags->prec = ft_get_width_or_prec(format, ap, flags);
 		}
 		(*format)++;
 	}
