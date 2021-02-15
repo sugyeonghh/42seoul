@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:54:01 by shong             #+#    #+#             */
-/*   Updated: 2021/02/11 19:34:07 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/16 01:35:39 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ static char	*ft_get_result_s(char *str, t_flag *flags)
 	char	*res;
 	char	*space;
 
+	if (flags->dot && !flags->prec)
+	{
+		if (!flags->width)
+			return (ft_strdup(""));
+		else
+			return (ft_str_filled_with(' ', flags->width));
+	}
 	if (flags->width <= (int)ft_strlen(str))
 		return (str);
 	space = ft_str_filled_with(' ', flags->width - (int)ft_strlen(str));
@@ -46,7 +53,7 @@ int			ft_type_s(const char *s, t_flag *flags)
 	char	res_size;
 
 	if (!s)
-		res = "(null)";
+		res = ft_get_str("(null)", flags);
 	if (s)
 		res = ft_get_str(s, flags);
 	res_size = ft_strlen(res);

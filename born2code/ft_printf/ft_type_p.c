@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/11 19:38:03 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/16 01:31:28 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static char	*ft_get_address(unsigned long long nbr, t_flag *flags)
 	char				*base;
 	char				*address;
 
+	if (!nbr)
+		return (ft_get_result_p(ft_strdup("0x0"), flags));
 	base = "0123456789abcdef";
 	tmp = nbr;
 	nbr_len = 0;

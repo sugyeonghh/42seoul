@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 19:04:47 by shong             #+#    #+#             */
-/*   Updated: 2021/02/15 18:55:45 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/16 00:29:58 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,29 @@ static char	*ft_get_result_di(char *nbr_di, t_flag *flags)
 {
 	char	*res;
 	char	*expand;
+	int		i;
+	int		nbr_len;
 
 	if (flags->width <= (int)ft_strlen(nbr_di))
 		return (nbr_di);
-	if (flags->zero && !flags->minus && !flags->prec)
+	if (flags->zero && !flags->dot && !flags->minus && !flags->prec && ft_strlen(nbr_di))
 		expand = ft_str_filled_with('0', flags->width - (int)ft_strlen(nbr_di));
 	else
 		expand = ft_str_filled_with(' ', flags->width - (int)ft_strlen(nbr_di));
 	if (flags->minus)
 		res = ft_strjoin(nbr_di, expand);
-	else
+	else if (*expand == ' ')
 		res = ft_strjoin(expand, nbr_di);
+	else
+	{
+		i = 0;
+		nbr_len = nbr_di[i] == '-' ? ft_strlen(nbr_di) - 1 : ft_strlen(nbr_di);
+		res = (char *)malloc(sizeof(char) * flags->width + 1);
+		ft_memset(res, '0', flags->width);
+		if (nbr_di[i] == '-')
+			res[i++] = '-';
+		ft_strlcpy(res + flags->width - nbr_len, nbr_di + i, nbr_len + 1);
+	}
 	free(nbr_di);
 	free(expand);
 	return (res);
@@ -35,18 +47,27 @@ static char	*ft_get_result_di(char *nbr_di, t_flag *flags)
 static char	*ft_get_nbr_di(int nbr, t_flag *flags)
 {
 	char	*nbr_di;
-	char	*zero;
 	char	*nbr_di_prec;
+	int		i;
+	int		nbr_len;
 	
 	if (flags->dot && !flags->prec && !nbr)
 		return (ft_get_result_di(ft_strdup(""), flags));
 	nbr_di = ft_itoa(nbr);
-	if (flags->prec <= (int)ft_strlen(nbr_di))
+	if (flags->prec < (int)ft_strlen(nbr_di))
 		return (ft_get_result_di(nbr_di, flags));
-	zero = ft_str_filled_with('0', flags->prec - (int)ft_strlen(nbr_di));
-	nbr_di_prec = ft_strjoin(zero, nbr_di);
+	i = 0;
+	if (nbr_di[i] == '-')
+	{
+		nbr_di_prec = (char*)malloc(sizeof(char) * flags->prec + 2);
+		nbr_di_prec[i++] = '-';
+	}
+	else
+		nbr_di_prec = (char*)malloc(sizeof(char) * flags->prec + 1);
+	ft_memset(nbr_di_prec + i, '0', flags->prec);
+	nbr_len = nbr < 0 ? ft_strlen(nbr_di) - 1 : ft_strlen(nbr_di);
+	ft_strlcpy(nbr_di_prec + i + flags->prec - nbr_len, nbr_di + i, nbr_len + 1);
 	free(nbr_di);
-	free(zero);
 	return (ft_get_result_di(nbr_di_prec, flags));
 }
 
