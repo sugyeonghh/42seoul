@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 03:59:48 by shong             #+#    #+#             */
-/*   Updated: 2021/02/16 04:10:38 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/16 04:56:32 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ static char	*ft_get_nbr_ux(const char format, unsigned int nbr, t_flag *flags)
 	char	*nbr_ux;
 	char	*nbr_ux_prec;
 	char	*base;
-	int		i;
 
 	if (format == 'u')
 		base = "0123456789";
@@ -85,16 +84,9 @@ static char	*ft_get_nbr_ux(const char format, unsigned int nbr, t_flag *flags)
 	nbr_ux = ft_uitoa_base(nbr, base);
 	if (flags->prec < (int)ft_strlen(nbr_ux))
 		return (ft_get_result_ux(nbr_ux, flags));
-	i = 0;
-	if (nbr_ux[i] == '-')
-	{
-		nbr_ux_prec = (char*)malloc(sizeof(char) * flags->prec + 2);
-		nbr_ux_prec[i++] = '-';
-	}
-	else
-		nbr_ux_prec = (char*)malloc(sizeof(char) * flags->prec + 1);
-	ft_memset(nbr_ux_prec + i, '0', flags->prec);
-	ft_strlcpy(nbr_ux_prec + i + flags->prec - ft_strlen(nbr_ux), nbr_ux + i,
+	nbr_ux_prec = (char*)malloc(sizeof(char) * flags->prec + 1);
+	ft_memset(nbr_ux_prec, '0', flags->prec);
+	ft_strlcpy(nbr_ux_prec + flags->prec - ft_strlen(nbr_ux), nbr_ux,
 														ft_strlen(nbr_ux) + 1);
 	free(nbr_ux);
 	return (ft_get_result_ux(nbr_ux_prec, flags));
