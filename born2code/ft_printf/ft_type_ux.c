@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 03:59:48 by shong             #+#    #+#             */
-/*   Updated: 2021/02/16 03:59:50 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/16 04:10:38 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static char	*ft_get_result_ux(char *nbr_ux, t_flag *flags)
 
 	if (!flags->width || flags->width <= (int)ft_strlen(nbr_ux))
 		return (nbr_ux);
-	if (flags->zero && !flags->dot && !flags->minus && !flags->prec && ft_strlen(nbr_ux))
+	if (flags->zero && !flags->dot && !flags->minus &&
+										!flags->prec && ft_strlen(nbr_ux))
 		expand = ft_str_filled_with('0', flags->width - (int)ft_strlen(nbr_ux));
 	else
 		expand = ft_str_filled_with(' ', flags->width - (int)ft_strlen(nbr_ux));
@@ -58,7 +59,8 @@ static char	*ft_get_result_ux(char *nbr_ux, t_flag *flags)
 	{
 		res = (char *)malloc(sizeof(char) * flags->width + 1);
 		ft_memset(res, '0', flags->width);
-		ft_strlcpy(res + flags->width - ft_strlen(nbr_ux), nbr_ux, ft_strlen(nbr_ux) + 1);
+		ft_strlcpy(res + flags->width - ft_strlen(nbr_ux), nbr_ux,
+														ft_strlen(nbr_ux) + 1);
 	}
 	free(nbr_ux);
 	free(expand);
@@ -71,7 +73,7 @@ static char	*ft_get_nbr_ux(const char format, unsigned int nbr, t_flag *flags)
 	char	*nbr_ux_prec;
 	char	*base;
 	int		i;
-	
+
 	if (format == 'u')
 		base = "0123456789";
 	else if (format == 'x')
@@ -92,7 +94,8 @@ static char	*ft_get_nbr_ux(const char format, unsigned int nbr, t_flag *flags)
 	else
 		nbr_ux_prec = (char*)malloc(sizeof(char) * flags->prec + 1);
 	ft_memset(nbr_ux_prec + i, '0', flags->prec);
-	ft_strlcpy(nbr_ux_prec + i + flags->prec - ft_strlen(nbr_ux), nbr_ux + i, ft_strlen(nbr_ux) + 1);
+	ft_strlcpy(nbr_ux_prec + i + flags->prec - ft_strlen(nbr_ux), nbr_ux + i,
+														ft_strlen(nbr_ux) + 1);
 	free(nbr_ux);
 	return (ft_get_result_ux(nbr_ux_prec, flags));
 }
