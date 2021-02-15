@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:47:31 by shong             #+#    #+#             */
-/*   Updated: 2021/02/15 01:21:17 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/16 04:00:22 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int			ft_print_type(char **format, va_list ap)
 	else if (ft_strchr("di", **format))
 		return (ft_type_di(va_arg(ap, int), &flags));
 	else if (ft_strchr("uxX", **format))
-		return (ft_type_uxX(**format, va_arg(ap, unsigned int), &flags));
+		return (ft_type_ux(**format, va_arg(ap, unsigned int), &flags));
 	return (0);
 }

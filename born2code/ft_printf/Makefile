@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 02:10:51 by shong             #+#    #+#              #
-#    Updated: 2021/02/10 08:57:54 by shong            ###   ########.fr        #
+#    Updated: 2021/02/16 04:00:49 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ FILES = ft_printf \
 		ft_type_p \
 		ft_type_s \
 		ft_type_di \
-		ft_type_uxX \
+		ft_type_ux \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 17:50:12 by shong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:31:28 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/16 03:53:03 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*ft_get_result_p(char *address, t_flag *flags)
 static char	*ft_get_address(unsigned long long nbr, t_flag *flags)
 {
 	unsigned long long	tmp;
-	int 				nbr_len;
+	int					nbr_len;
 	char				*base;
 	char				*address;
 
