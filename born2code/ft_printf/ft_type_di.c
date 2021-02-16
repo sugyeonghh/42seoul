@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 19:04:47 by shong             #+#    #+#             */
-/*   Updated: 2021/02/16 03:55:05 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/17 04:16:01 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static char	*ft_get_result_di(char *nbr_di, t_flag *flags)
 
 	if (flags->width <= (int)ft_strlen(nbr_di))
 		return (nbr_di);
-	if (flags->zero && !flags->dot && !flags->minus &&
-										!flags->prec && ft_strlen(nbr_di))
+	if (flags->zero && !flags->dot && !flags->minus
+			&& !flags->prec && ft_strlen(nbr_di))
 		expand = ft_str_filled_with('0', flags->width - (int)ft_strlen(nbr_di));
 	else
 		expand = ft_str_filled_with(' ', flags->width - (int)ft_strlen(nbr_di));

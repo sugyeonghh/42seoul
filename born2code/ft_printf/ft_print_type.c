@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:47:31 by shong             #+#    #+#             */
-/*   Updated: 2021/02/16 04:00:22 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/17 03:43:44 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static int	ft_get_width_or_prec(char **format, va_list ap, t_flag *flags)
 		{
 			if (flags->dot)
 				return (flags->dot = 0);
+			flags->zero = 0;
 			flags->minus = 1;
 			nbr *= -1;
 		}
@@ -51,11 +52,11 @@ static int	ft_get_width_or_prec(char **format, va_list ap, t_flag *flags)
 
 static void	ft_flag_parse(char **format, va_list ap, t_flag *flags)
 {
-	while (!ft_strchr("cspdiuxX", **format))
+	while (!ft_strchr("cspdiuxX%", **format))
 	{
 		if (**format == '-')
 			flags->minus = 1;
-		else if (!flags->dot && **format == '0')
+		else if (**format == '0' && !flags->minus && !flags->dot)
 			flags->zero = 1;
 		else if (**format == '.')
 			flags->dot = 1;
@@ -86,5 +87,7 @@ int			ft_print_type(char **format, va_list ap)
 		return (ft_type_di(va_arg(ap, int), &flags));
 	else if (ft_strchr("uxX", **format))
 		return (ft_type_ux(**format, va_arg(ap, unsigned int), &flags));
+	else if (**format == '%')
+		return (ft_type_c(**format, &flags));
 	return (0);
 }

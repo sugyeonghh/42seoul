@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:54:01 by shong             #+#    #+#             */
-/*   Updated: 2021/02/16 01:35:39 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/17 02:34:32 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static char	*ft_get_result_s(char *str, t_flag *flags)
 {
 	char	*res;
-	char	*space;
+	char	*expand;
 
 	if (flags->dot && !flags->prec)
 	{
@@ -26,13 +26,17 @@ static char	*ft_get_result_s(char *str, t_flag *flags)
 	}
 	if (flags->width <= (int)ft_strlen(str))
 		return (str);
-	space = ft_str_filled_with(' ', flags->width - (int)ft_strlen(str));
-	if (flags->minus)
-		res = ft_strjoin(str, space);
+	if (flags->zero && !flags->prec && ft_strlen(str))
+		expand = ft_str_filled_with('0', flags->width - (int)ft_strlen(str));
 	else
-		res = ft_strjoin(space, str);
+		expand = ft_str_filled_with(' ', flags->width - (int)ft_strlen(str));
+	
+	if (flags->minus)
+		res = ft_strjoin(str, expand);
+	else
+		res = ft_strjoin(expand, str);
 	free(str);
-	free(space);
+	free(expand);
 	return (res);
 }
 
@@ -40,6 +44,11 @@ static char	*ft_get_str(const char *s, t_flag *flags)
 {
 	char	*str;
 
+	if (!s)
+	{
+		free((char *)s);
+		s = ft_strdup("(null)");
+	}
 	if (!(flags->prec) || flags->prec >= (int)ft_strlen(s))
 		return (ft_get_result_s(ft_strdup(s), flags));
 	str = (char *)malloc(sizeof(char) * flags->prec + 1);
@@ -50,15 +59,11 @@ static char	*ft_get_str(const char *s, t_flag *flags)
 int			ft_type_s(const char *s, t_flag *flags)
 {
 	char	*res;
-	char	res_size;
+	int		res_size;
 
-	if (!s)
-		res = ft_get_str("(null)", flags);
-	if (s)
-		res = ft_get_str(s, flags);
+	res = ft_get_str(s, flags);
 	res_size = ft_strlen(res);
-	ft_putstr_fd(res, 1);
-	if (s)
-		free(res);
+	write(1, res, res_size);
+	free(res);
 	return (res_size);
 }

@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 03:59:48 by shong             #+#    #+#             */
-/*   Updated: 2021/02/16 04:56:32 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/16 23:20:38 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int			ft_type_ux(const char format, unsigned int nbr, t_flag *flags)
 
 	res = ft_get_nbr_ux(format, nbr, flags);
 	res_size = ft_strlen(res);
-	ft_putstr_fd(res, 1);
+	write(1, res, res_size);
 	free(res);
 	return (res_size);
 }

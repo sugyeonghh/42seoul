@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 03:56:50 by shong             #+#    #+#             */
-/*   Updated: 2021/02/16 03:56:53 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/17 04:14:18 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,28 @@
 static char	*ft_get_result_c(char *ch, t_flag *flags)
 {
 	char	*res;
-	char	*space;
+	char	*expand;
 
 	if (flags->width <= 1)
 		return (ch);
-	space = ft_str_filled_with(' ', flags->width - 1);
+	if (flags->zero)
+		expand = ft_str_filled_with('0', flags->width - 1);
+	else
+		expand = ft_str_filled_with(' ', flags->width - 1);
 	res = (char *)malloc(sizeof(char) * flags->width + 1);
 	if (flags->minus)
 	{
 		ft_memcpy(res, ch, 1);
-		ft_memcpy(res + 1, space, ft_strlen(space));
+		ft_memcpy(res + 1, expand, ft_strlen(expand));
 	}
 	else
 	{
-		ft_memcpy(res, space, ft_strlen(space));
-		ft_memcpy(res + ft_strlen(space), ch, 1);
+		ft_memcpy(res, expand, ft_strlen(expand));
+		ft_memcpy(res + ft_strlen(expand), ch, 1);
 	}
 	res[flags->width] = 0;
 	free(ch);
-	free(space);
+	free(expand);
 	return (res);
 }
 
