@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:54:01 by shong             #+#    #+#             */
-/*   Updated: 2021/02/17 02:34:32 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/17 06:31:22 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static char	*ft_get_result_s(char *str, t_flag *flags)
 		expand = ft_str_filled_with('0', flags->width - (int)ft_strlen(str));
 	else
 		expand = ft_str_filled_with(' ', flags->width - (int)ft_strlen(str));
-	
 	if (flags->minus)
 		res = ft_strjoin(str, expand);
 	else
