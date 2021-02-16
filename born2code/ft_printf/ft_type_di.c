@@ -6,13 +6,13 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 19:04:47 by shong             #+#    #+#             */
-/*   Updated: 2021/02/17 06:55:51 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/17 07:01:45 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*ft_expand_with_zero(char *expand, char *nbr_di, t_flag *flags)
+static char	*ft_expand_with_zero(char *nbr_di, t_flag *flags)
 {
 	char	*res;
 	int		i;
@@ -21,12 +21,10 @@ static char	*ft_expand_with_zero(char *expand, char *nbr_di, t_flag *flags)
 	i = 0;
 	nbr_len = nbr_di[i] == '-' ? ft_strlen(nbr_di) - 1 : ft_strlen(nbr_di);
 	res = (char *)malloc(sizeof(char) * flags->width + 1);
-//	ft_memset(res, '0', flags->width);
+	ft_memset(res, '0', flags->width);
 	if (nbr_di[i] == '-')
 		res[i++] = '-';
-	ft_strlcpy(res + 1, expand, ft_strlen(expand));
-	ft_strlcpy(res + 1 + ft_strlen(expand), nbr_di + i, nbr_len + 1);
-//	ft_strlcpy(res + flags->width - nbr_len, nbr_di + i, nbr_len + 1);
+	ft_strlcpy(res + flags->width - nbr_len, nbr_di + i, nbr_len + 1);
 	return (res);
 }
 
@@ -47,7 +45,7 @@ static char	*ft_get_result_di(char *nbr_di, t_flag *flags)
 	else if (*expand == ' ')
 		res = ft_strjoin(expand, nbr_di);
 	else
-		res = ft_expand_with_zero(expand, nbr_di, flags);
+		res = ft_expand_with_zero(nbr_di, flags);
 	free(nbr_di);
 	free(expand);
 	return (res);
