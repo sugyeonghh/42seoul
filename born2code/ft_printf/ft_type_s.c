@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 17:54:01 by shong             #+#    #+#             */
-/*   Updated: 2021/02/17 06:31:22 by shong            ###   ########.fr       */
+/*   Updated: 2021/02/18 20:23:42 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,13 @@ static char	*ft_get_result_s(char *str, t_flag *flags)
 	return (res);
 }
 
-static char	*ft_get_str(const char *s, t_flag *flags)
+static char	*ft_get_str(char *s, t_flag *flags)
 {
 	char	*str;
 
 	if (!s)
 	{
-		free((char *)s);
-		s = ft_strdup("(null)");
+		s = "(null)";
 	}
 	if (!(flags->prec) || flags->prec >= (int)ft_strlen(s))
 		return (ft_get_result_s(ft_strdup(s), flags));
@@ -60,7 +59,7 @@ int			ft_type_s(const char *s, t_flag *flags)
 	char	*res;
 	int		res_size;
 
-	res = ft_get_str(s, flags);
+	res = ft_get_str((char *)s, flags);
 	res_size = ft_strlen(res);
 	write(1, res, res_size);
 	free(res);
