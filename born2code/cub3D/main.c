@@ -74,7 +74,7 @@ int				main(void)
 
 	img.img = mlx_new_image(vars.mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	draw_square(&img, 100, 100, 200, 0x00FF0000);
+//	draw_square(&img, 100, 100, 200, 0x00FF0000);
 //	draw_circle(&img, 100, 100, 100, 0x000000FF);
 //	draw_circle(&img, 220, 100, 100, 0x00FFFFFF);
 //	draw_circle(&img, 340, 100, 100, 0x00FF0000);
