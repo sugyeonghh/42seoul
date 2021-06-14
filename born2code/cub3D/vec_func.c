@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 18:01:53 by shong             #+#    #+#             */
-/*   Updated: 2021/03/13 22:04:55 by shong            ###   ########.fr       */
+/*   Updated: 2021/03/17 20:15:19 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ t_vec	vec_rotate_min(t_vec a)
 	t_vec	result;
 
 	if (sin_unit)
-		sin_unit;
+		sin_unit = sin_unit;
 	else
-		sin(M_PI * ANGLE_MIN / 180);
+		sin_unit = sin(M_PI * ANGLE_MIN / 180);
 	if (cos_unit)
-		cos_unit;
+		cos_unit = cos_unit;
 	else
-		cos(M_PI * ANGLE_MIN / 180);
+		cos_unit = cos(M_PI * ANGLE_MIN / 180);
 	result.x = cos_unit * a.x - sin_unit * a.y;
 	result.y = sin_unit * a.x - cos_unit * a.y;
 	return (result);
