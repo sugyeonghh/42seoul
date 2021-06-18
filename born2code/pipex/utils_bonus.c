@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 19:49:42 by shong             #+#    #+#             */
-/*   Updated: 2021/06/14 19:24:19 by shong            ###   ########.fr       */
+/*   Created: 2021/06/14 19:04:11 by shong             #+#    #+#             */
+/*   Updated: 2021/06/14 19:25:58 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 void	cmd_init(const char *command, t_cmd *cmd)
 {
@@ -36,39 +36,4 @@ void	run_cmd(const char *command)
 	while (i < 5)
 		execve(cmd.cmd[i++], cmd.argv, cmd.envp);
 	perror(cmd.argv[0]);
-}
-
-void	connect_pipe(int *pipefd, int fd)
-{
-	dup2(pipefd[fd], fd);
-	close(pipefd[0]);
-	close(pipefd[1]);
-}
-
-int		redirect_in(const char *file)
-{
-	int		fd;
-
-	if ((fd = open(file, O_RDONLY)) < 0)
-	{
-		perror(file);
-		exit(-1);
-	}
-	dup2(fd, 0);
-	close(fd);
-	return (0);
-}
-
-int		redirect_out(const char *file)
-{
-	int		fd;
-
-	if ((fd = open(file, O_RDWR | O_CREAT | O_TRUNC, 0644)) < 0)
-	{
-		perror(file);
-		exit(-1);
-	}
-	dup2(fd, 1);
-	close(fd);
-	return (0);
 }
