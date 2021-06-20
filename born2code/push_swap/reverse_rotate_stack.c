@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   reverse_rotate_stack.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 02:44:05 by shong             #+#    #+#             */
-/*   Updated: 2021/06/20 03:34:30 by shong            ###   ########.fr       */
+/*   Created: 2021/06/20 18:48:35 by shong             #+#    #+#             */
+/*   Updated: 2021/06/20 19:00:23 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		check_argv_error(int argc, char *argv[])
+void	reverse_rotate_stack(t_stack *stack)
 {
-	int		i;
-	int		j;
+	t_node	*node;
 
-	if (argc <= 1)
-		return (-1);
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j] != '\0')
-			if (ft_isalpha(argv[i][j++]))
-				return (-1);
-		i++;
-	}
-	return (0);
+	node = stack->last;
+	stack->first = node;
+	stack->last = node->prev;
 }
 
-int		check_integer_error(int argc, char *argv[])
+void	rra(t_stack *a)
 {
-		
+	reverse_rotate_stack(a);
+	ft_putstr_fd("rra\n", 1);
+}
+
+void	rrb(t_stack *b)
+{
+	reverse_rotate_stack(b);
+	ft_putstr_fd("rrb\n", 1);
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a);
+	rrb(b);
+	ft_putstr_fd("rrr\n", 1);
 }

@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/20 02:57:19 by shong             #+#    #+#              #
-#    Updated: 2021/06/20 02:57:59 by shong            ###   ########.fr        #
+#    Updated: 2021/06/20 19:07:02 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 FILES = push_swap \
-		check_error \
+		swap_stack \
+		push_stack \
+		rotate_stack \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
@@ -25,14 +27,16 @@ SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
+all: libft $(NAME)
+
 .c.o: $(SRCS)
-	make -C libft
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -Llibft -lft
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -L./libft/ -lft
+	$(CC) -o $(NAME) $(OBJS) -Llibft -lft
 
-all: $(NAME)
+libft:
+	make -C libft
 
 clean:
 	make clean -C libft

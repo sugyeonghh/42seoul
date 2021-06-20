@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rotate_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 02:20:14 by shong             #+#    #+#             */
-/*   Updated: 2021/06/20 15:41:05 by shong            ###   ########.fr       */
+/*   Created: 2021/06/20 18:39:47 by shong             #+#    #+#             */
+/*   Updated: 2021/06/20 18:58:46 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char *argv[])
+void	rotate_stack(t_stack *stack)
 {
-	if (argc < 2)
-		ft_putstr_fd("Error \n", 1);
-	return (0);
+	t_node	*node;
+
+	node = stack->first;
+	stack->first = node->next;
+	stack->last = node;
+}
+
+void	ra(t_stack *a)
+{
+	rotate_stack(a);
+	ft_putstr_fd("ra\n", 1);
+}
+
+void	rb(t_stack *b)
+{
+	rotate_stack(b);
+	ft_putstr_fd("rb\n", 1);
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	ra(a);
+	rb(b);
+	ft_putstr_fd("rr\n", 1);
 }
