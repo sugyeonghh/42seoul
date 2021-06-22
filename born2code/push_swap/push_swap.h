@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 02:26:13 by shong             #+#    #+#             */
-/*   Updated: 2021/06/20 19:01:21 by shong            ###   ########.fr       */
+/*   Updated: 2021/06/22 17:45:28 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct	s_node
 {
 	int				value;
+	int				idx;
 	struct s_node	*prev;
 	struct s_node	*next;
 }				t_node;
@@ -50,7 +51,7 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
-
+t_node	*find_pivot(t_stack *stack);
 
 
 #endif

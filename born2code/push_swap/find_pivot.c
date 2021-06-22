@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   find_pivot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 02:20:14 by shong             #+#    #+#             */
-/*   Updated: 2021/06/22 13:55:52 by shong            ###   ########.fr       */
+/*   Created: 2021/06/22 17:13:20 by shong             #+#    #+#             */
+/*   Updated: 2021/06/22 17:43:30 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char *argv[])
+t_node	*find_pivot(t_stack *stack)
 {
-	
-	
-	
-	if (argc < 2)
-		ft_putstr_fd("Error \n", 1);
+	t_node	*pivot;
+	t_node	*p1;
+	t_node	*p2;
 
-	return (0);
+	p1 = stack->first;
+	while (p1)
+	{
+		p2 = stack->first;
+		while (p2)
+		{
+			if (p2->value < p1->value)
+				p1->idx++;
+			p2 = p2->next;
+			if (p2 == stack->first)
+				break;
+		}
+		if (p1->idx == (stack->size / 2))
+			pivot = p1;
+		p1 = p1->next;
+		if (p1 == stack->first)
+			break;
+	}
+	return (pivot);
 }

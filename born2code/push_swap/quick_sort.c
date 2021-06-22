@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 02:20:14 by shong             #+#    #+#             */
-/*   Updated: 2021/06/22 13:55:52 by shong            ###   ########.fr       */
+/*   Created: 2021/06/22 17:46:51 by shong             #+#    #+#             */
+/*   Updated: 2021/06/22 17:56:26 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char *argv[])
+t_node	partition(t_stack *stack)
 {
-	
-	
-	
-	if (argc < 2)
-		ft_putstr_fd("Error \n", 1);
+	t_node	*pivot;
 
-	return (0);
+	pivot = find_pivot(stack);
+
+}
+
+void	quick_sort(t_stack *stack)
+{
+
 }

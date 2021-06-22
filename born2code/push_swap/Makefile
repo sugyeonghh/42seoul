@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/20 02:57:19 by shong             #+#    #+#              #
-#    Updated: 2021/06/20 19:07:02 by shong            ###   ########.fr        #
+#    Updated: 2021/06/22 17:45:00 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ FILES = push_swap \
 		swap_stack \
 		push_stack \
 		rotate_stack \
+		find_pivot \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
