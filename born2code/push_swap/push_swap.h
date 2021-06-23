@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 02:26:13 by shong             #+#    #+#             */
-/*   Updated: 2021/06/22 17:45:28 by shong            ###   ########.fr       */
+/*   Updated: 2021/06/23 15:12:31 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
 t_node	*find_pivot(t_stack *stack);
-
+void	partition(t_stack *a, t_stack *b);
 
 #endif
