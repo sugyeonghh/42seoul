@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 17:29:35 by shong             #+#    #+#              #
-#    Updated: 2021/06/24 19:45:08 by shong            ###   ########.fr        #
+#    Updated: 2021/06/24 19:48:46 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,16 +26,14 @@ OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
 
-all: libft $(NAME)
+all: $(NAME)
 
 .c.o: $(SRCS)
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -Llibft -lft
-
-libft:
 	make -C libft
+	$(CC) -o $(NAME) $(OBJS) -Llibft -lft
 
 clean:
 	make clean -C libft
