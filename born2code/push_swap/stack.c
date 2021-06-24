@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:23:44 by shong             #+#    #+#             */
-/*   Updated: 2021/06/24 18:41:25 by shong            ###   ########.fr       */
+/*   Updated: 2021/06/24 19:41:21 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ t_node	*last_node(t_node *stack)
 	p = stack;
 	while (p)
 	{
-		p = p->next;
 		if (!(p->next) || p->next == stack)
-			break ;
+			break;
+		p = p->next;
 	}
 	return (p);
 }

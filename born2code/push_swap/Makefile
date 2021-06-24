@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 17:29:35 by shong             #+#    #+#              #
-#    Updated: 2021/06/24 17:37:43 by shong            ###   ########.fr        #
+#    Updated: 2021/06/24 19:45:08 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,16 @@ FILES = push_swap \
 		stack \
 
 SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES))
+SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 
 OBJS_DIR = ./
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .c, $(FILES))
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
 
-all: libft &(NAME)
+all: libft $(NAME)
 
 .c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -Llibft -lft
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(OBJS) -Llibft -lft

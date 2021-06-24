@@ -6,13 +6,14 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:11:48 by shong             #+#    #+#             */
-/*   Updated: 2021/06/24 18:16:47 by shong            ###   ########.fr       */
+/*   Updated: 2021/06/24 19:00:33 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include "libft/libft.h"
 

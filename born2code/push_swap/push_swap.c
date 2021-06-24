@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/06/24 18:24:47 by shong            ###   ########.fr       */
+/*   Updated: 2021/06/24 19:42:07 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ int		main(int argc, char *argv[])
 		ft_putstr_fd("No arguments!\n", 1);
 	i = 1;
 	while (i < argc)
-	{
-		add_stack(&a, new_node(ft_atoi(argv[i])));
-		i++;
-	}
+		add_stack(&a, new_node(ft_atoi(argv[i++])));
 	p = a;
 	while (p)
 	{
