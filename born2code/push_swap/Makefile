@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/24 17:29:35 by shong             #+#    #+#              #
-#    Updated: 2021/06/24 19:48:46 by shong            ###   ########.fr        #
+#    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
+#    Updated: 2021/06/30 18:16:09 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ RM = rm -f
 
 FILES = push_swap \
 		stack \
+		sort \
+		actions/swap \
+		actions/push \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
@@ -25,15 +28,14 @@ SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
-
-all: $(NAME)
-
 .c.o: $(SRCS)
+	make -C libft
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
-	make -C libft
-	$(CC) -o $(NAME) $(OBJS) -Llibft -lft
+	$(CC) -o $(NAME) $(OBJS) -L./libft/ -lft
+
+all: $(NAME)
 
 clean:
 	make clean -C libft
@@ -46,4 +48,3 @@ fclean: clean
 re: clean all
 
 .PHONY: all clean fclean re
-

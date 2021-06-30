@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:11:48 by shong             #+#    #+#             */
-/*   Updated: 2021/06/24 19:00:33 by shong            ###   ########.fr       */
+/*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
+/*   Updated: 2021/06/30 18:33:12 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,27 @@ typedef struct	s_node
 	struct s_node	*next;
 }				t_node;
 
+// stack
+void			init_idx(t_node *stack);
+t_node			*new_node(int value);
+t_node			*last_node(t_node *stack);
+void			add_stack(t_node **stack, t_node *new_node);
+int				stack_size(t_node *stack);
 
-t_node	*new_node(int value);
-t_node	*last_node(t_node *stack);
-void	add_stack(t_node **stack, t_node *new_node);
+// sort
+t_node			*find_pivot(t_node *stack);
 
+// atcions/swap
+void			swap(t_node **stack);
+void			sa(t_node **stack);
+void			sb(t_node **stack);
+void			ss(t_node **a, t_node **b);
 
+// atcionts/push
+void			push(t_node **a, t_node **b);
+void			pa(t_node **a, t_node **b);
+void			pb(t_node **a, t_node **b);
+
+// push_swap
+void			view_stack(t_node *stack);
 #endif
