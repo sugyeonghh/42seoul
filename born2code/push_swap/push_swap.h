@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/06/30 18:33:12 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/02 03:36:04 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void			ss(t_node **a, t_node **b);
 
 // atcionts/push
 void			push(t_node **a, t_node **b);
+void			push2(t_node **a, t_node **b);
+void			push3(t_node **a, t_node **b);
 void			pa(t_node **a, t_node **b);
 void			pb(t_node **a, t_node **b);
 

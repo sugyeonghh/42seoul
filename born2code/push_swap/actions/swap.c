@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 15:03:57 by shong             #+#    #+#             */
-/*   Updated: 2021/06/30 17:46:57 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/02 03:02:12 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	swap(t_node **stack)
 	t_node	*p2;
 	t_node	*last;
 
-	if (!stack || stack_size(*stack) == 1)
+	if (!*stack || stack_size(*stack) == 1)
 		return ;
 	last = last_node(*stack);
 	p1 = *stack;
@@ -52,6 +52,7 @@ void	sb(t_node **stack)
 
 void	ss(t_node **a, t_node **b)
 {
-	sa(a);
-	sb(b);
+	swap(a);
+	swap(b);
+	ft_putstr_fd("ss \n", 1);
 }
