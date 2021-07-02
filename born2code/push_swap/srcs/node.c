@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:23:44 by shong             #+#    #+#             */
-/*   Updated: 2021/06/30 18:36:37 by shong            ###   ########.fr       */
+/*   Created: 2021/07/02 18:51:24 by shong             #+#    #+#             */
+/*   Updated: 2021/07/02 19:21:32 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	init_idx(t_node *stack)
+void	init_node_idx(t_node *stack)
 {
 	t_node	*p;
 
@@ -55,41 +55,4 @@ t_node	*last_node(t_node *stack)
 		p = p->next;
 	}
 	return (p);
-}
-
-void	add_stack(t_node **stack, t_node *new_node)
-{
-	t_node	*last;
-
-	if (!stack || !new_node)
-		return ;
-	last = last_node(*stack);
-	if (!last)
-		*stack = new_node;
-	else
-	{
-		last->next = new_node;
-		new_node->prev = last;
-		new_node->next = *stack;
-		(*stack)->prev = new_node;
-	}
-}
-
-int		stack_size(t_node *stack)
-{
-	int		size;
-	t_node	*p;
-
-	if (!stack)
-		return (0);
-	p = stack;
-	size = 0;
-	while (p)
-	{
-		size++;
-		if (!(p->next) || p->next == stack)
-			break ;
-		p = p->next;
-	}
-	return (size);
 }

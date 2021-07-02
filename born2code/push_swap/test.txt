@@ -1,0 +1,60 @@
+	// swap
+/*	view_stack(a); view_stack(b); printf("\n");
+	pb(&a, &b);
+	pb(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	sa(&a);
+	view_stack(a); view_stack(b); printf("\n");
+	sb(&b);
+	view_stack(a); view_stack(b); printf("\n");
+	ss(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+*/
+
+	// push
+/*	view_stack(a); view_stack(b); printf("\n");
+	pb(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	pa(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	pa(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	pb(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+*/
+
+	// rotate
+/*	view_stack(a); view_stack(b); printf("\n");
+	rb(&b);
+	view_stack(a); view_stack(b); printf("\n");
+	pb(&a, &b);
+	pb(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	ra(&a);
+	view_stack(a); view_stack(b); printf("\n");
+	rb(&b);
+	view_stack(a); view_stack(b); printf("\n");
+	rr(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+*/
+
+	// reverse_rotate
+/*	view_stack(a); view_stack(b); printf("\n");
+	rrb(&b);
+	view_stack(a); view_stack(b); printf("\n");
+	pb(&a, &b);
+	pb(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	rra(&a);
+	view_stack(a); view_stack(b); printf("\n");
+	rrb(&b);
+	view_stack(a); view_stack(b); printf("\n");
+	rrr(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+*/
+
+

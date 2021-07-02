@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/07/02 19:23:55 by shong            ###   ########.fr       */
+/*   Created: 2021/07/02 17:41:32 by shong             #+#    #+#             */
+/*   Updated: 2021/07/02 19:22:41 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
-int		main(int argc, char *argv[])
+void	rotate(t_node **stack)
 {
-	t_node	*a;
-	t_node	*b;
+	if (!*stack || stack_size(*stack) == 1)
+		return ;
+	else
+		*stack = (*stack)->next;
+}
 
-	a = argv_to_stack(argc, argv);
-	b = NULL;
-	if (stack_size(a) == 1)
-		return (0);
+void	ra(t_node **stack)
+{
+	rotate(stack);
+	ft_putstr_fd("ra \n", 1);
+}
 
-	sort(a, b);
+void	rb(t_node **stack)
+{
+	rotate(stack);
+	ft_putstr_fd("rb \n", 1);
+}
 
-	return (0);
+void	rr(t_node **a, t_node **b)
+{
+	rotate(a);
+	rotate(b);
+	ft_putstr_fd("rr \n", 1);
 }

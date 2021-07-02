@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/06/30 18:16:09 by shong            ###   ########.fr        #
+#    Updated: 2021/07/02 19:20:12 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,14 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 FILES = push_swap \
-		stack \
-		sort \
-		actions/swap \
-		actions/push \
+		srcs/node \
+		srcs/stack \
+		srcs/pivot \
+		srcs/sort \
+		srcs/actions/swap \
+		srcs/actions/push \
+		srcs/actions/rotate \
+		srcs/actions/reverse_rotate \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
@@ -33,7 +37,7 @@ OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -L./libft/ -lft
+	$(CC) -o $(NAME) $(OBJS) -L./libft/ -lft -I./includes/
 
 all: $(NAME)
 

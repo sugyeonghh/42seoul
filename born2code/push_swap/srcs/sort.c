@@ -5,38 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/30 17:00:57 by shong             #+#    #+#             */
-/*   Updated: 2021/06/30 17:23:16 by shong            ###   ########.fr       */
+/*   Created: 2021/07/02 19:09:11 by shong             #+#    #+#             */
+/*   Updated: 2021/07/02 19:21:51 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-t_node	*find_pivot(t_node *stack)
+void	sort(t_node *a, t_node *b)
 {
-	t_node	*pivot;
-	t_node	*p1;
-	t_node	*p2;
+	view_stack(a); view_stack(b); printf("\n");
+	pb(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	rr(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	rrr(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
+	sa(&a);
+	view_stack(a); view_stack(b); printf("\n");
+	ss(&a, &b);
+	view_stack(a); view_stack(b); printf("\n");
 
-	init_idx(stack);
-	pivot = NULL;
-	p1 = stack;
-	while (p1)
-	{
-		p2 = stack;
-		while (p2)
-		{
-			if (p1->value > p2->value)
-				p1->idx += 1;
-			if (!(p2->next) || p2->next == stack)
-				break ;
-			p2 = p2->next;
-		}
-		if (p1->idx == (stack_size(stack) / 2))
-			pivot = p1;
-		if (!(p1->next) || p1->next == stack)
-			break ;
-		p1 = p1->next;
-	}
-	return (pivot);
+
+
 }

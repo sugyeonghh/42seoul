@@ -6,11 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 15:03:57 by shong             #+#    #+#             */
-/*   Updated: 2021/07/02 03:02:12 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/02 19:22:52 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	swap(t_node **stack)
 {
@@ -20,14 +20,14 @@ void	swap(t_node **stack)
 
 	if (!*stack || stack_size(*stack) == 1)
 		return ;
-	last = last_node(*stack);
-	p1 = *stack;
-	p2 = (*stack)->next;
-	if (stack_size(*stack) == 2)
-		*stack = p2;
+	else if (stack_size(*stack) == 2)
+		*stack = (*stack)->next;
 	else
 	{
-		p2->prev = p1->prev;
+		last = last_node(*stack);
+		p1 = *stack;
+		p2 = (*stack)->next;
+		p2->prev = last;
 		p1->prev = p2;
 		p1->next = p2->next;
 		p2->next->prev = p1;
@@ -35,7 +35,6 @@ void	swap(t_node **stack)
 		last->next = p2;
 		*stack = p2;
 	}
-	return ;
 }
 
 void	sa(t_node **stack)

@@ -6,11 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:49:51 by shong             #+#    #+#             */
-/*   Updated: 2021/07/02 03:36:23 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/02 19:22:28 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	push(t_node **a, t_node **b)
 {
@@ -62,7 +62,6 @@ void	push3(t_node **a, t_node **b)
 	(last_node(*a))->next = *b;
 	*a = *b;
 	*b = NULL;
-
 }
 
 void	pa(t_node **a, t_node **b)
