@@ -6,11 +6,27 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:00:57 by shong             #+#    #+#             */
-/*   Updated: 2021/07/02 19:21:44 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/03 04:54:48 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	init_idx(t_node *stack)
+{
+	t_node	*p;
+
+	if (!stack)
+		return ;
+	p = stack;
+	while (p)
+	{
+		p->idx = 0;
+		if (!(p->next) || p->next == stack)
+			break ;
+		p = p->next;
+	}
+}
 
 t_node	*find_pivot(t_node *stack)
 {
@@ -18,7 +34,7 @@ t_node	*find_pivot(t_node *stack)
 	t_node	*p1;
 	t_node	*p2;
 
-	init_node_idx(stack);
+	init_idx(stack);
 	pivot = NULL;
 	p1 = stack;
 	while (p1)

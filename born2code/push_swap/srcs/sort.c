@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 19:09:11 by shong             #+#    #+#             */
-/*   Updated: 2021/07/02 19:21:51 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/03 05:32:23 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	sort(t_node *a, t_node *b)
 {
-	view_stack(a); view_stack(b); printf("\n");
-	pb(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	view_stack(a); view_stack(b); printf("\n");
-	rr(&a, &b);
-	view_stack(a); view_stack(b); printf("\n");
-	rrr(&a, &b);
-	view_stack(a); view_stack(b); printf("\n");
-	sa(&a);
-	view_stack(a); view_stack(b); printf("\n");
-	ss(&a, &b);
-	view_stack(a); view_stack(b); printf("\n");
+	if (stack_size(a) == 2)
+		quick_sort1(a);
+	else
+		quick_sort2(a, b);
+}
 
+void	quick_sort1(t_node *a)
+{
+	if (a->value > a->next->value)
+		sa(&a);
+	return ;
+}
 
-
+void	quick_sort2(t_node *a, t_node *b)
+{
+	
 }

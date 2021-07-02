@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/07/02 19:20:12 by shong            ###   ########.fr        #
+#    Updated: 2021/07/03 05:29:20 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 FILES = push_swap \
-		srcs/node \
 		srcs/stack \
 		srcs/pivot \
 		srcs/sort \
