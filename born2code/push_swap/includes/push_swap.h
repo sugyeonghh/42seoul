@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/03 05:32:46 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/04 04:19:23 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,20 @@ t_node			*argv_to_stack(int argc, char *argv[]);
 void			add_stack(t_node **stack, int value);
 int				stack_size(t_node *stack);
 t_node			*last_node(t_node *stack);
+int				min_node_pos(t_node *stack);
 
 // pivot 
 void			init_idx(t_node *stack);
 t_node			*find_pivot(t_node *stack);
 
 // sort
-void			sort(t_node *a, t_node *b);
-void			quick_sort1(t_node *a);
-void			quick_sort2(t_node *a, t_node *b);
+int				is_sorted(t_node *a);
+void			sort(t_node **a, t_node **b);
+
+// quick_sort
+void			sort_case_3(t_node **a);
+void			sort_case_4(t_node **a, t_node **b);
+void			sort_case_5(t_node **a, t_node **b);
 
 // actions/swap
 void			swap(t_node **stack);

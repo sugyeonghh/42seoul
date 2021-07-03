@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:23:44 by shong             #+#    #+#             */
-/*   Updated: 2021/07/03 04:56:27 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/04 03:47:19 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,30 @@ t_node	*last_node(t_node *stack)
 		p = p->next;
 	}
 	return (p);
+}
+
+int		min_node_pos(t_node *stack)
+{
+	t_node	*min;
+	t_node	*p;
+	int		pos;
+
+	min = stack;
+	p = stack->next;
+	while (p)
+	{
+		if (p->value < min->value)
+			min = p;
+		if (!(p->next) || p->next == stack)
+			break ;
+		p = p->next;
+	}
+	pos = 0;
+	p = stack;
+	while (p != min)
+	{
+		pos++;
+		p = p->next;
+	}
+	return (pos);
 }

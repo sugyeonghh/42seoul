@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/07/03 04:58:48 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/04 04:05:39 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,11 @@ int		main(int argc, char *argv[])
 
 	a = argv_to_stack(argc, argv);
 	b = NULL;
+	view_stack(a); view_stack(b); printf("\n[commands]\n");
 	if (stack_size(a) > 1)
-		sort(a, b);
+		sort(&a, &b);
+	if (is_sorted(a)) printf("\n>> stack a is sorted! <<\n");
+	else printf("\n>> stack a is NOT sorted!!!!!!! <<\n");
+	view_stack(a); view_stack(b); printf("\n");
 	return (0);
 }
