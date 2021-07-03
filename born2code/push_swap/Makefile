@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/07/04 03:30:34 by shong            ###   ########.fr        #
+#    Updated: 2021/07/04 05:54:11 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ RM = rm -f
 FILES = push_swap \
 		srcs/stack \
 		srcs/pivot \
-		srcs/sort \
-		srcs/quick_sort/sort_under_5 \
+		srcs/sorting/sort \
+		srcs/sorting/sort_under_five \
+		srcs/sorting/quick_sort \
 		srcs/actions/swap \
 		srcs/actions/push \
 		srcs/actions/rotate \

@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/04 04:19:23 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/04 05:53:43 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,18 @@ int				min_node_pos(t_node *stack);
 void			init_idx(t_node *stack);
 t_node			*find_pivot(t_node *stack);
 
-// sort
+// sorting/sort
 int				is_sorted(t_node *a);
 void			sort(t_node **a, t_node **b);
 
-// quick_sort
+// sorting/sort_under_five
 void			sort_case_3(t_node **a);
 void			sort_case_4(t_node **a, t_node **b);
 void			sort_case_5(t_node **a, t_node **b);
+
+// sorting/quick_sort
+void			partition(t_node **a, t_node **b, t_node *pivot);
+void			quick_sort(t_node **a, t_node **b);
 
 // actions/swap
 void			swap(t_node **stack);

@@ -6,11 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 19:09:11 by shong             #+#    #+#             */
-/*   Updated: 2021/07/04 04:02:58 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/04 05:54:49 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int		is_sorted(t_node *a)
 {
@@ -41,5 +41,7 @@ void	sort(t_node **a, t_node **b)
 		sort_case_4(a, b);
 	else if (stack_size(*a) == 5)
 		sort_case_5(a, b);
+	else
+		quick_sort(a, b);
 	return ;
 }
