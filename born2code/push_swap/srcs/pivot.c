@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:00:57 by shong             #+#    #+#             */
-/*   Updated: 2021/07/03 04:54:48 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/05 04:22:10 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,30 @@ void	init_idx(t_node *stack)
 	}
 }
 
-t_node	*find_pivot(t_node *stack)
+t_node	*find_pivot(t_node *stack, int size)
 {
 	t_node	*pivot;
 	t_node	*p1;
 	t_node	*p2;
+	int		i;
+	int		j;
 
 	init_idx(stack);
 	pivot = NULL;
 	p1 = stack;
-	while (p1)
+	i = -1;
+	while (++i < size)
 	{
 		p2 = stack;
-		while (p2)
+		j = -1;
+		while (++j < size)
 		{
-			if (p1->value > p2->value)
+			if (p2->value < p1->value)
 				p1->idx += 1;
-			if (!(p2->next) || p2->next == stack)
-				break ;
 			p2 = p2->next;
 		}
-		if (p1->idx == (stack_size(stack) / 2))
+		if (p1->idx == (size / 2))
 			pivot = p1;
-		if (!(p1->next) || p1->next == stack)
-			break ;
 		p1 = p1->next;
 	}
 	return (pivot);

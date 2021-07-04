@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/07/04 05:54:11 by shong            ###   ########.fr        #
+#    Updated: 2021/07/05 05:06:52 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,31 +16,37 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-FILES = push_swap \
-		srcs/stack \
-		srcs/pivot \
-		srcs/sorting/sort \
-		srcs/sorting/sort_under_five \
-		srcs/sorting/quick_sort \
-		srcs/actions/swap \
-		srcs/actions/push \
-		srcs/actions/rotate \
-		srcs/actions/reverse_rotate \
+LIBFT = libft.a
+LIBS = -L./libft/ -lft 
 
-SRCS_DIR = ./
+
+FILES = push_swap \
+		stack \
+		pivot \
+		sorting/sort \
+		sorting/sort_under_five \
+		sorting/quick_sort \
+		actions/swap \
+		actions/push \
+		actions/rotate \
+		actions/reverse_rotate \
+
+SRCS_DIR = ./srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 
-OBJS_DIR = ./
+OBJS_DIR = ./srcs/
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
 .c.o: $(SRCS)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(LIBS) -I./includes/
+
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) -o $(NAME) $(OBJS) $(LIBS) -I./includes/
+
+all: $(NAME) $(LIBFT)
+
+$(LIBFT): libft/*.c
 	make -C libft
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-
-$(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -L./libft/ -lft -I./includes/
-
-all: $(NAME)
 
 clean:
 	make clean -C libft

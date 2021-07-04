@@ -6,43 +6,55 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 04:37:14 by shong             #+#    #+#             */
-/*   Updated: 2021/07/04 06:12:35 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/05 05:09:59 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	partition(t_node **a, t_node **b, t_node *pivot)
+void	quick_sort(t_node **a, t_node **b, int size)
 {
-	int		num;
+	int		s_size;
 	int		i;
 
-	num = stack_size(*a) / 2;
-	i = 0;
-	while (i < num)
+	if (size % 2)
+		s_size = (size / 2) + 1;
+	else
+		s_size = size / 2;
+
+	if (size > 1)
 	{
+		partition(a, b, find_pivot(*a, size));
+		quick_sort(a, b, s_size);
+		i = -1;
+		while (++i < (size - s_size))
+			pa(a, b);
+		quick_sort(a, b, size - s_size);
+	}
+}
+
+void	partition(t_node **a, t_node **b, t_node *pivot)
+{
+	int		pb_cnt;
+	int		ra_cnt;
+
+	pb_cnt = 0;
+	ra_cnt = 0;
+	while (1)
+	{
+		if (pb_cnt == pivot->idx)
+			break ;
 		if ((*a)->value < pivot->value)
 		{
 			pb(a, b);
-			i++;
+			pb_cnt++;
 		}
 		else
+		{
 			ra(a);
+			ra_cnt++;
+		}
 	}
-	while ((*a) != pivot)
-		ra(a);
-}
-
-void	quick_sort(t_node **a, t_node **b)
-{
-	t_node	*pivot;
-
-	pivot = find_pivot(*a);
-	partition(a, b, pivot);
-	if (!is_sorted(*a))
-		pb(a, b);
-	sort(a, b);
-	while (*b != pivot)
-		pa(a, b);
-	pa(a, b);
+	while (ra_cnt--)
+		rra(a);
 }

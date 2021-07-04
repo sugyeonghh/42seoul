@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_under_5.c                                     :+:      :+:    :+:   */
+/*   sort_under_five.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 03:15:28 by shong             #+#    #+#             */
-/*   Updated: 2021/07/04 04:17:35 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/05 02:52:49 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort_case_3(t_node **a)
 {
 	t_node	*pivot;
 
-	pivot = find_pivot(*a);
+	pivot = find_pivot(*a, 3);
 	if ((*a)->value < pivot->value)
 	{
 		rra(a);
@@ -67,7 +67,7 @@ void	sort_case_5(t_node **a, t_node **b)
 	t_node	*pivot;
 	int		i;
 
-	pivot = find_pivot(*a);
+	pivot = find_pivot(*a, 5);
 	i = 0;
 	while (i < 2)
 	{

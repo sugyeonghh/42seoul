@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 19:09:11 by shong             #+#    #+#             */
-/*   Updated: 2021/07/04 05:54:49 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/05 05:03:08 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	sort(t_node **a, t_node **b)
 	else if (stack_size(*a) == 5)
 		sort_case_5(a, b);
 	else
-		quick_sort(a, b);
+		quick_sort(a, b, stack_size(*a));
 	return ;
 }

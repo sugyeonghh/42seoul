@@ -6,11 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/07/04 04:05:39 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/05 04:24:51 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 #include <stdio.h>
 
 void	view_stack(t_node *stack)
@@ -24,7 +24,7 @@ void	view_stack(t_node *stack)
 		printf("NULL \n");
 		return ;
 	}
-	pivot = find_pivot(stack);
+	pivot = find_pivot(stack, stack_size(stack));
 	p = stack;
 	while (p)
 	{
