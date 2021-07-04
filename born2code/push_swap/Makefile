@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/07/05 05:06:52 by shong            ###   ########.fr        #
+#    Updated: 2021/07/05 05:24:29 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ LIBS = -L./libft/ -lft
 
 
 FILES = push_swap \
+		exception \
 		stack \
 		pivot \
 		sorting/sort \
