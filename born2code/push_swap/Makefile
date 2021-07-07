@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/07/07 14:50:50 by shong            ###   ########.fr        #
+#    Updated: 2021/07/07 17:03:07 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBS = -L./libft/ -lft
 
 
 FILES = push_swap \
-		invalid \
+		preprocessing \
 		stack \
 		pivot \
 		sorting/sort \

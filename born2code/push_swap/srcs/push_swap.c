@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 15:02:04 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/07 17:11:10 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ int		main(int argc, char *argv[])
 	t_node	*a;
 	t_node	*b;
 
-	a = argv_to_stack(argc, argv);
+	a = preprocess(argc, argv);
 	b = NULL;
 	view_stack(a); view_stack(b); printf("\n[commands]\n");
-	if (!invalid_check(a) && stack_size(a) > 1)
+	if (stack_size(a) > 1)
 		sort(&a, &b);
 	if (is_sorted(a)) printf("\n>> stack a is sorted! <<\n");
 	else printf("\n>> stack a is NOT sorted!!!!!!! <<\n");

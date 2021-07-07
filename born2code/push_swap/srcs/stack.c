@@ -6,13 +6,13 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:23:44 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 15:28:54 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/07 17:52:32 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_node	*argv_to_stack(int argc, char *argv[])
+t_node	*preprocess(int argc, char *argv[])
 {
 	t_node	*a;
 	int		i;
@@ -24,6 +24,7 @@ t_node	*argv_to_stack(int argc, char *argv[])
 	}
 	a = NULL;
 	i = 1;
+	// argv_check
 	while (i < argc)
 		add_stack(&a, ft_atoi(argv[i++]));
 	return (a);

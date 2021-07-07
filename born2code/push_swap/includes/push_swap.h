@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 15:29:15 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/07 17:11:23 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int				invalid_check(t_node *stack);
 int				is_duplicate(t_node *stack);
 
 // stack
-t_node			*argv_to_stack(int argc, char *argv[]);
+t_node			*preprocess(int argc, char *argv[]);
 void			add_stack(t_node **stack, int value);
 int				stack_size(t_node *stack);
 t_node			*last_node(t_node *stack);
