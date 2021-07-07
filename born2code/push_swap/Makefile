@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/07/05 05:24:29 by shong            ###   ########.fr        #
+#    Updated: 2021/07/07 14:50:50 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBS = -L./libft/ -lft
 
 
 FILES = push_swap \
-		exception \
+		invalid \
 		stack \
 		pivot \
 		sorting/sort \
@@ -39,7 +39,7 @@ OBJS_DIR = ./srcs/
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
 .c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(LIBS) -I./includes/
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) -o $(NAME) $(OBJS) $(LIBS) -I./includes/

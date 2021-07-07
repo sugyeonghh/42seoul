@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:23:44 by shong             #+#    #+#             */
-/*   Updated: 2021/07/04 03:47:19 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/07 15:01:57 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_node	*argv_to_stack(int argc, char *argv[])
 	if (argc < 2)
 	{
 		ft_putstr_fd("No arguments!\n", 1);
-		exit(-1);
+		exit(1);
 	}
 	a = NULL;
 	i = 1;

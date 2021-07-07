@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/05 05:44:33 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/07 15:02:19 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ typedef struct	s_node
 	struct s_node	*next;
 }				t_node;
 
-// exception
-
+// invalid
+int				invalid_check(t_node *stack);
+int				is_duplicate(t_node *stack);
 
 // stack
 t_node			*argv_to_stack(int argc, char *argv[]);
