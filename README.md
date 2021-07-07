@@ -8,4 +8,4 @@ Number | Project | Language | Topic | Date
  3 | [Get_next_line](https://github.com/sugyeonghh/42seoul/tree/master/born2code/get_next_line) | C | '\n' in txt | 2021.01.27
  4 | [Ft_printf](https://github.com/sugyeonghh/42seoul/tree/master/born2code/ft_printf) | C | printf %csdiuxXp | 2021.02.14
  5 | [Pipex](https://github.com/sugyeonghh/42seoul/tree/master/born2code/pipex) | C | pipe  | 2021.06.22
- 6 | [Push_swap] (https://github.com/sugyeonghh/42seoul/tree/master/born2code/push_swap) | C | sort | -
+ 6 | [Push_swap](https://github.com/sugyeonghh/42seoul/tree/master/born2code/push_swap) | C | sort | -
