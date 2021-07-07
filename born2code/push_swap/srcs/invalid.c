@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 05:23:14 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 15:03:16 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/07 15:30:33 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ int		is_duplicate(t_node *stack)
 	}
 	i = -1;
 	while (++i < size)
-		if (check[i] == 2)
+		if (check[i] >= 2)
 			return (1);
+	free(check);
 	return (0);
 }
+
