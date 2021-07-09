@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 17:11:10 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/10 01:48:40 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		main(int argc, char *argv[])
 	t_node	*a;
 	t_node	*b;
 
-	a = preprocess(argc, argv);
+	a = pre(argc, argv);
 	b = NULL;
 	view_stack(a); view_stack(b); printf("\n[commands]\n");
 	if (stack_size(a) > 1)

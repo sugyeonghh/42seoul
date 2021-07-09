@@ -6,42 +6,60 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 05:23:14 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 18:01:19 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/10 03:10:50 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		*argv_check(int argc, char *argv[])
+t_node	*pre(int argc, char **argv)
 {
-	int		*res;
+	t_node	*res;
 	char	**tmp;
 	int		i;
 	int		j;
 
-	i = 0;
-	while (++i < argc)
+	if (argc < 2)
 	{
-		tmp = ft_split(argv[i], ' ');
-		j = 0;
-		while (tmp[j])
-		{
-
-		}
-	}
-}
-
-int		invalid_check(t_node *stack)
-{
-	if (is_duplicate(stack))
-	{
-		ft_putstr_fd("duplicate error! \n", 1);
+		ft_putstr_fd("input error: need two or more\n", 1);
 		exit(1);
 	}
-	return (0);
+	res = NULL;
+	i = 1;
+	while (i < argc)
+	{
+		tmp = ft_split(argv[i++], ' ');
+		j = -1;
+		while (tmp[++j])
+		{
+			allnum_check(tmp[j]);
+			add_stack(&res, ascii_to_integer(tmp[j]));
+		}
+		free(tmp);
+	}
+	duplicate_check(res);
+	return (res);
 }
 
-int		is_duplicate(t_node *stack)
+void	allnum_check(char *s)
+{
+	int		i;
+
+	i = -1;
+	while (++i < (int)ft_strlen(s))
+		if (!ft_isdigit(s[i]))
+		{
+			ft_putstr_fd("input error: including character\n", 1);
+			exit(1);
+		}
+}
+
+void	ascii_to_integer(char *s)
+{
+	return ;
+}
+
+void	duplicate_check(t_node *stack)
 {
 	t_node	*p;
 	int		*check;
@@ -50,7 +68,7 @@ int		is_duplicate(t_node *stack)
 
 	size = stack_size(stack);
 	find_pivot(stack, size);
-	check = (int *)malloc(sizeof(int) * size);
+	check = ft_calloc(size, sizeof(int));
 	p = stack;
 	while (p)
 	{
@@ -62,8 +80,9 @@ int		is_duplicate(t_node *stack)
 	i = -1;
 	while (++i < size)
 		if (check[i] >= 2)
-			return (1);
+		{
+			ft_putstr_fd("duplicate error! \n", 1);
+			exit(1);
+		}
 	free(check);
-	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 17:11:23 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/10 02:35:48 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ typedef struct	s_node
 }				t_node;
 
 // invalid
-int				invalid_check(t_node *stack);
-int				is_duplicate(t_node *stack);
+t_node			*pre(int argc, char *argv[]);
+void			allnum_check(char *s);
+void			duplicate_check(t_node *stack);
 
 // stack
-t_node			*preprocess(int argc, char *argv[]);
 void			add_stack(t_node **stack, int value);
 int				stack_size(t_node *stack);
 t_node			*last_node(t_node *stack);
