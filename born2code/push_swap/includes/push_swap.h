@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/10 02:35:48 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/12 18:43:59 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "../libft/libft.h"
 
 typedef struct	s_node
@@ -25,8 +26,9 @@ typedef struct	s_node
 	struct s_node	*next;
 }				t_node;
 
-// invalid
+// preprocessing
 t_node			*pre(int argc, char *argv[]);
+int				ascii_to_integer(char *s);
 void			allnum_check(char *s);
 void			duplicate_check(t_node *stack);
 

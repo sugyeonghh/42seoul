@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 05:23:14 by shong             #+#    #+#             */
-/*   Updated: 2021/07/12 19:32:58 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/12 18:56:01 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	allnum_check(char *s)
 
 	i = -1;
 	while (++i < (int)ft_strlen(s))
-		if (s[i] != '-' && !ft_isdigit(s[i]))
+		if (!ft_isdigit(s[i]))
 		{
 			ft_putstr_fd("input error: including character\n", 1);
 			exit(1);
@@ -71,13 +71,13 @@ int		ascii_to_integer(char *s)
 	cnt = 0;
 	while (*s >= '0' && *s <= '9')
 	{
+		if ((num * sign) > INT_MAX || (num * sign) < INT_MIN)
+		{
+			ft_putstr_fd("input error: out of integer \n", 1);
+			exit(1);
+		}
 		num = num * 10 + (*s++ - 48);
 		cnt++;
-	}
-	if ((num * sign) < INT_MIN || (num * sign) > INT_MAX)
-	{
-		ft_putstr_fd("input error: out of integer \n", 1);
-		exit(1);
 	}
 	return ((int)num * sign);
 }
