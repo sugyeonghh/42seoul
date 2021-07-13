@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 19:09:11 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 14:56:28 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/12 21:03:56 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ int		is_sorted(t_node *a)
 	return (1);
 }
 
-void	sort(t_node **a, t_node **b)
+void	sort(t_node **a, t_node **b, int size)
 {
 	if (is_sorted(*a))
 		return ;
-	else if (stack_size(*a) == 2)
+	else if (size == 2)
 		sa(a);
-	else if (stack_size(*a) == 3)
+	else if (size == 3)
 		sort_case_3(a);
-	else if (stack_size(*a) == 4)
+	else if (size == 4)
 		sort_case_4(a, b);
-	else if (stack_size(*a) == 5)
+	else if (size == 5)
 		sort_case_5(a, b);
 	else
 		quick_sort(a, b, stack_size(*a));

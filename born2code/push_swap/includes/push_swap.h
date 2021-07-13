@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/12 18:43:59 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/12 21:05:00 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_node			*find_pivot(t_node *stack, int size);
 
 // sorting/sort
 int				is_sorted(t_node *a);
-void			sort(t_node **a, t_node **b);
+void			sort(t_node **a, t_node **b, int size);
 
 // sorting/sort_under_five
 void			sort_case_3(t_node **a);
