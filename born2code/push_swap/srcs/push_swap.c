@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/07/13 17:27:44 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/13 18:01:26 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		main(int argc, char *argv[])
 	t_node	*a;
 	t_node	*b;
 
+	if (argc < 2)
+		exit(1);
 	a = pre(argc, argv);
 	b = NULL;
 	if (stack_size(a) > 1)

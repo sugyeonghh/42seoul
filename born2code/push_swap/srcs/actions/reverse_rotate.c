@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:56:08 by shong             #+#    #+#             */
-/*   Updated: 2021/07/02 19:22:35 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/13 18:02:52 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ void	reverse_rotate(t_node **stack)
 void	rra(t_node **stack)
 {
 	reverse_rotate(stack);
-	ft_putstr_fd("rra \n", 1);
+	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_node **stack)
 {
 	reverse_rotate(stack);
-	ft_putstr_fd("rrb \n", 1);
+	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_node **a, t_node **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	ft_putstr_fd("rrr \n", 1);
+	ft_putstr_fd("rrr\n", 1);
 }

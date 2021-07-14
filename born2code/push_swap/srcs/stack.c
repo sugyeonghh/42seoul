@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:23:44 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 17:52:32 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/13 17:59:43 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_node	*preprocess(int argc, char *argv[])
 
 	if (argc < 2)
 	{
-		ft_putstr_fd("No arguments!\n", 1);
+		ft_putstr_fd("Error\n", 1);
 		exit(1);
 	}
 	a = NULL;
@@ -38,7 +38,7 @@ void	add_stack(t_node **stack, int value)
 	if (!stack)
 		return ;
 	if (!(new = (t_node *)malloc(sizeof(t_node))))
-		ft_putstr_fd("Fail to create new node \n", 1);
+		ft_putstr_fd("Error\n", 1);
 	new->value = value;
 	new->idx = 0;
 	new->prev = NULL;

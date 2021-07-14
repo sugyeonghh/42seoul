@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:49:51 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 14:08:09 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/13 18:01:58 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ void	push3(t_node **a, t_node **b)
 void	pa(t_node **a, t_node **b)
 {
 	push(a, b);
-	ft_putstr_fd("pa \n", 1);
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_node **a, t_node **b)
 {
 	push(b, a);
-	ft_putstr_fd("pb \n", 1);
+	ft_putstr_fd("pb\n", 1);
 }

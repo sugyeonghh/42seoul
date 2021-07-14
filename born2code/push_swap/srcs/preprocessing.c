@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 05:23:14 by shong             #+#    #+#             */
-/*   Updated: 2021/07/12 19:32:58 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/13 17:58:31 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_node	*pre(int argc, char **argv)
 
 	if (argc < 2)
 	{
-		ft_putstr_fd("input error: need two or more\n", 1);
+		ft_putstr_fd("Error\n", 1);
 		exit(1);
 	}
 	res = NULL;
@@ -49,7 +49,7 @@ void	allnum_check(char *s)
 	while (++i < (int)ft_strlen(s))
 		if (s[i] != '-' && !ft_isdigit(s[i]))
 		{
-			ft_putstr_fd("input error: including character\n", 1);
+			ft_putstr_fd("Error\n", 1);
 			exit(1);
 		}
 }
@@ -76,7 +76,7 @@ int		ascii_to_integer(char *s)
 	}
 	if ((num * sign) < INT_MIN || (num * sign) > INT_MAX)
 	{
-		ft_putstr_fd("input error: out of integer \n", 1);
+		ft_putstr_fd("Error\n", 1);
 		exit(1);
 	}
 	return ((int)num * sign);
@@ -104,7 +104,7 @@ void	duplicate_check(t_node *stack)
 	while (++i < size)
 		if (check[i] >= 2)
 		{
-			ft_putstr_fd("duplicate error! \n", 1);
+			ft_putstr_fd("Error\n", 1);
 			exit(1);
 		}
 	free(check);

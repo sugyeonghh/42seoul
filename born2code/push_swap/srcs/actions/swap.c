@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 15:03:57 by shong             #+#    #+#             */
-/*   Updated: 2021/07/02 19:22:52 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/13 18:02:37 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ void	swap(t_node **stack)
 void	sa(t_node **stack)
 {
 	swap(stack);
-	ft_putstr_fd("sa \n", 1);
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_node **stack)
 {
 	swap(stack);
-	ft_putstr_fd("sb \n", 1);
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_node **a, t_node **b)
 {
 	swap(a);
 	swap(b);
-	ft_putstr_fd("ss \n", 1);
+	ft_putstr_fd("ss\n", 1);
 }
