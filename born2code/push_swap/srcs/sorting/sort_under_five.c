@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 03:15:28 by shong             #+#    #+#             */
-/*   Updated: 2021/07/05 02:52:49 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/14 23:17:57 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 void	sort_case_3(t_node **a)
 {
-	t_node	*pivot;
+	int		mid_pos;
 
-	pivot = find_pivot(*a, 3);
-	if ((*a)->value < pivot->value)
+	mid_pos = find_mid_pos(*a, 3);
+	if (mid_pos == 0)
 	{
-		rra(a);
-		sa(a);
-	}
-	else if ((*a) == pivot)
-	{
-		if ((*a)->next->value < pivot->value)
+		if ((*a)->next->value < (*a)->next->next->value)
 			sa(a);
 		else
 			rra(a);
+	}
+	else if (mid_pos == 1)
+	{
+		sa(a);
+		rra(a);
 	}
 	else
 	{
-		if ((*a)->next->value < pivot->value)
-			ra(a);
-		else
+		if ((*a)->value < (*a)->next->value)
 		{
-			sa(a);
 			rra(a);
+			sa(a);
 		}
+		else
+			ra(a);
 	}
 }
 
@@ -45,7 +45,7 @@ void	sort_case_4(t_node **a, t_node **b)
 {
 	int		min_pos;
 
-	min_pos = min_node_pos(*a);
+	min_pos = find_min_pos(*a, 4);
 	if (min_pos == 1)
 		sa(a);
 	else if (min_pos == 2)
@@ -59,30 +59,5 @@ void	sort_case_4(t_node **a, t_node **b)
 		return ;
 	pb(a, b);
 	sort_case_3(a);
-	pa(a, b);
-}
-
-void	sort_case_5(t_node **a, t_node **b)
-{
-	t_node	*pivot;
-	int		i;
-
-	pivot = find_pivot(*a, 5);
-	i = 0;
-	while (i < 2)
-	{
-		if ((*a)->value < pivot->value)
-		{
-			pb(a, b);
-			i++;
-		}
-		else
-			ra(a);
-	}
-	if (!is_sorted(*a))
-		sort_case_3(a);
-	if (is_sorted(*b))
-		sb(b);
-	pa(a, b);
 	pa(a, b);
 }

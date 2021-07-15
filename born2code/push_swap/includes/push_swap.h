@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/13 18:21:24 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/14 23:01:50 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ typedef struct	s_node
 	struct s_node	*next;
 }				t_node;
 
+typedef struct	s_pivot
+{
+	t_node	*small;
+	t_node	*big;
+}				t_pivot;
+
 // preprocessing
 t_node			*pre(int argc, char *argv[]);
 int				ascii_to_integer(char *s);
@@ -35,11 +41,14 @@ void			duplicate_check(t_node *stack);
 void			add_stack(t_node **stack, int value);
 int				stack_size(t_node *stack);
 t_node			*last_node(t_node *stack);
-int				min_node_pos(t_node *stack);
+int				find_mid_pos(t_node *stack, int size);
+int				find_min_pos(t_node *stack, int size);
 
 // pivot 
 void			init_idx(t_node *stack);
-t_node			*find_pivot(t_node *stack, int size);
+void			set_idx(t_node *stack, int size);
+void			init_pivot(t_pivot *pivot);
+t_pivot			find_pivot(t_node *stack, int size);
 
 // sorting/sort
 int				is_sorted(t_node *a);
@@ -48,7 +57,6 @@ void			sort(t_node **a, t_node **b, int size);
 // sorting/sort_under_five
 void			sort_case_3(t_node **a);
 void			sort_case_4(t_node **a, t_node **b);
-void			sort_case_5(t_node **a, t_node **b);
 
 // sorting/quick_sort
 void			quick_sort(t_node **a, t_node **b, int size);

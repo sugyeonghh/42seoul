@@ -6,29 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:23:44 by shong             #+#    #+#             */
-/*   Updated: 2021/07/13 17:59:43 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/14 23:02:11 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-t_node	*preprocess(int argc, char *argv[])
-{
-	t_node	*a;
-	int		i;
-
-	if (argc < 2)
-	{
-		ft_putstr_fd("Error\n", 1);
-		exit(1);
-	}
-	a = NULL;
-	i = 1;
-	// argv_check
-	while (i < argc)
-		add_stack(&a, ft_atoi(argv[i++]));
-	return (a);
-}
 
 void	add_stack(t_node **stack, int value)
 {
@@ -89,26 +71,36 @@ t_node	*last_node(t_node *stack)
 	return (p);
 }
 
-int		min_node_pos(t_node *stack)
+int		find_mid_pos(t_node *stack, int size)
 {
-	t_node	*min;
 	t_node	*p;
 	int		pos;
 
-	min = stack;
-	p = stack->next;
-	while (p)
+	p = stack;
+	pos = 0;
+	set_idx(stack, size);
+	while (1)
 	{
-		if (p->value < min->value)
-			min = p;
-		if (!(p->next) || p->next == stack)
+		if (p->idx == 1)
 			break ;
+		pos++;
 		p = p->next;
 	}
-	pos = 0;
+	return (pos);
+}
+
+int		find_min_pos(t_node *stack, int size)
+{
+	t_node	*p;
+	int		pos;
+
 	p = stack;
-	while (p != min)
+	pos = 0;
+	set_idx(stack, size);
+	while (1)
 	{
+		if (p->idx == 0)
+			break ;
 		pos++;
 		p = p->next;
 	}

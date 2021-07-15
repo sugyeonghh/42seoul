@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 05:23:14 by shong             #+#    #+#             */
-/*   Updated: 2021/07/13 17:58:31 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/14 22:51:54 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	duplicate_check(t_node *stack)
 	int		size;
 
 	size = stack_size(stack);
-	find_pivot(stack, size);
+	set_idx(stack, size);
 	check = ft_calloc(size, sizeof(int));
 	p = stack;
 	while (p)

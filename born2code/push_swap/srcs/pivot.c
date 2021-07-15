@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:00:57 by shong             #+#    #+#             */
-/*   Updated: 2021/07/07 14:14:07 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/14 22:50:55 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,14 @@ void	init_idx(t_node *stack)
 	}
 }
 
-t_node	*find_pivot(t_node *stack, int size)
+void	set_idx(t_node *stack, int size)
 {
-	t_node	*pivot;
 	t_node	*p1;
 	t_node	*p2;
 	int		i;
 	int		j;
 
 	init_idx(stack);
-	pivot = NULL;
 	p1 = stack;
 	i = -1;
 	while (++i < size)
@@ -50,9 +48,37 @@ t_node	*find_pivot(t_node *stack, int size)
 				p1->idx += 1;
 			p2 = p2->next;
 		}
-		if (p1->idx == (size / 2))
-			pivot = p1;
 		p1 = p1->next;
+	}
+}
+
+void	init_pivot(t_pivot *pivot)
+{
+	pivot->small = NULL;
+	pivot->big = NULL;
+}
+
+t_pivot	find_pivot(t_node *stack, int size)
+{
+	t_pivot	pivot;
+	t_node	*p;
+	int		small;
+	int		big;
+	int		i;
+
+	small = size / 3;
+	big = size / 3 * 2;
+	init_pivot(&pivot);
+	set_idx(stack, size);
+	p = stack;
+	i = -1;
+	while (++i < size)
+	{
+		if (p->idx == small)
+			pivot.small = p;
+		else if (p->idx == big)
+			pivot.big = p;
+		p = p->next;
 	}
 	return (pivot);
 }
