@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/09/02 18:47:44 by shong            ###   ########.fr       */
+/*   Created: 2021/08/29 15:29:35 by shong             #+#    #+#             */
+/*   Updated: 2021/08/29 16:11:08 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
-int		main(int argc, char *argv[])
+void	display(t_node *stack, t_pivot pivot)
 {
-	t_node	*a;
-	t_node	*b;
+	t_node	*p;
+	t_node	*last;
 
-	if (argc < 2)
-		exit(1);
-	a = pre(argc, argv);
-	b = NULL;
-	if (stack_size(a) > 1)
-		sort(&a, &b, stack_size(a));
-	return (0);
+	p = stack;
+	last = last_node(stack);
+	if (p == NULL)
+	{
+		printf("NULL \n");
+		return ;
+	}
+	while (p)
+	{
+		printf("%d", p->value);
+		if (p == pivot.small)
+			printf("(s)");
+		else if (p == pivot.big)
+			printf("(b)");
+		if (p == last)
+			break ;
+		p = p->next;
+		printf(" -> ");
+	}
+	printf("\n");
 }

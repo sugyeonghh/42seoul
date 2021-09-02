@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 05:23:14 by shong             #+#    #+#             */
-/*   Updated: 2021/07/14 22:51:54 by shong            ###   ########.fr       */
+/*   Updated: 2021/07/16 06:15:41 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ t_node	*pre(int argc, char **argv)
 	int		i;
 	int		j;
 
-	if (argc < 2)
-	{
-		ft_putstr_fd("Error\n", 1);
-		exit(1);
-	}
 	res = NULL;
 	i = 1;
 	while (i < argc)

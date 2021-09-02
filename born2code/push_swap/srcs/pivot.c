@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:00:57 by shong             #+#    #+#             */
-/*   Updated: 2021/07/14 22:50:55 by shong            ###   ########.fr       */
+/*   Updated: 2021/08/29 16:35:06 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_pivot	find_pivot(t_node *stack, int size)
 	int		big;
 	int		i;
 
-	small = size / 3;
+	small = size / 3 * 1;
 	big = size / 3 * 2;
 	init_pivot(&pivot);
 	set_idx(stack, size);

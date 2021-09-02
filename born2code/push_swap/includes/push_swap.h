@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/07/14 23:01:50 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/02 18:45:47 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,16 @@ t_pivot			find_pivot(t_node *stack, int size);
 int				is_sorted(t_node *a);
 void			sort(t_node **a, t_node **b, int size);
 
-// sorting/sort_under_five
+// sorting/sort_under_four
 void			sort_case_3(t_node **a);
 void			sort_case_4(t_node **a, t_node **b);
 
-// sorting/quick_sort
-void			quick_sort(t_node **a, t_node **b, int size);
-void			partition(t_node **a, t_node **b, t_node *pivot);
+// sorting/sort_over_four
+void			sort_over_4(t_node **a, t_node **b);
+void			a_to_b(t_node **a, t_node **b, t_pivot pivot);
+void			b_to_a(t_node **a, t_node **b, t_pivot pivot);
+void			b_to_a_pa(t_node **a, t_node **b, int *ra_cnt, int *pa_cnt);
+
 
 // actions/swap
 void			swap(t_node **stack);

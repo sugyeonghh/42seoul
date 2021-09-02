@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/07/07 17:03:07 by shong            ###   ########.fr        #
+#    Updated: 2021/08/29 15:42:03 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,13 @@ FILES = push_swap \
 		stack \
 		pivot \
 		sorting/sort \
-		sorting/sort_under_five \
-		sorting/quick_sort \
+		sorting/sort_under_four \
+		sorting/sort_over_four \
 		actions/swap \
 		actions/push \
 		actions/rotate \
 		actions/reverse_rotate \
+		display \
 
 SRCS_DIR = ./srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
