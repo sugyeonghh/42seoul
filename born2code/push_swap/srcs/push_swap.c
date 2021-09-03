@@ -6,13 +6,13 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/09/03 03:50:36 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/04 04:05:09 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_node	*a;
 	t_node	*b;

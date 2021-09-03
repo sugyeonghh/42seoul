@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/08/29 15:42:03 by shong            ###   ########.fr        #
+#    Updated: 2021/09/04 03:28:50 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ FILES = push_swap \
 		actions/push \
 		actions/rotate \
 		actions/reverse_rotate \
-		display \
 
 SRCS_DIR = ./srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

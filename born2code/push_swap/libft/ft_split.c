@@ -6,13 +6,13 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 16:42:39 by shong             #+#    #+#             */
-/*   Updated: 2020/12/30 03:07:02 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/04 03:53:58 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_word_count(char const *s, char c)
+static int	ft_word_count(char const *s, char c)
 {
 	int		cnt;
 
@@ -29,7 +29,7 @@ static int		ft_word_count(char const *s, char c)
 	return (cnt);
 }
 
-static char		**ft_free(char **res)
+static char	**ft_free(char **res)
 {
 	int		i;
 
@@ -40,13 +40,14 @@ static char		**ft_free(char **res)
 	return (0);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	char	*tmp;
 	int		i;
 
-	if (!s || !(res = malloc(sizeof(char *) * (ft_word_count(s, c) + 1))))
+	res = malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
+	if (!s || !res)
 		return (0);
 	i = 0;
 	while (*s)
@@ -56,7 +57,8 @@ char			**ft_split(char const *s, char c)
 			tmp = (char *)s;
 			while (*s && *s != c)
 				s++;
-			if (!(res[i] = (char *)malloc((s - tmp + 1))))
+			res[i] = (char *)malloc((s - tmp + 1));
+			if (!res[i])
 				return (ft_free(res));
 			ft_strlcpy(res[i++], tmp, s - tmp + 1);
 		}

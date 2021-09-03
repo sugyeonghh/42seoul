@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/09/03 03:50:43 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/04 03:29:59 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <limits.h>
 # include "../libft/libft.h"
 
-typedef struct	s_node
+typedef struct s_node
 {
 	int				value;
 	int				idx;
@@ -25,7 +25,7 @@ typedef struct	s_node
 	struct s_node	*next;
 }				t_node;
 
-typedef struct	s_pivot
+typedef struct s_pivot
 {
 	t_node	*small;
 	t_node	*big;
@@ -64,7 +64,6 @@ void			a_to_b(t_node **a, t_node **b, t_pivot pivot);
 void			b_to_a(t_node **a, t_node **b, t_pivot pivot);
 void			b_to_a_pa(t_node **a, t_node **b, int *ra_cnt, int *pa_cnt);
 
-
 // actions/swap
 void			swap(t_node **stack);
 void			sa(t_node **stack);
@@ -89,8 +88,5 @@ void			reverse_rotate(t_node **stack);
 void			rra(t_node **stack);
 void			rrb(t_node **stack);
 void			rrr(t_node **a, t_node **b);
-
-// push_swap
-void			view_stack(t_node *stack);
 
 #endif

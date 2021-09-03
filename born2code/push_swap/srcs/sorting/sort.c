@@ -6,13 +6,13 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 19:09:11 by shong             #+#    #+#             */
-/*   Updated: 2021/09/02 16:10:35 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/04 03:21:39 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int		is_sorted(t_node *a)
+int	is_sorted(t_node *a)
 {
 	t_node	*p1;
 	t_node	*p2;

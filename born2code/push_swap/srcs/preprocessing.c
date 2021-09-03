@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 05:23:14 by shong             #+#    #+#             */
-/*   Updated: 2021/07/16 06:15:41 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/04 04:03:36 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,16 @@ void	allnum_check(char *s)
 
 	i = -1;
 	while (++i < (int)ft_strlen(s))
+	{
 		if (s[i] != '-' && !ft_isdigit(s[i]))
 		{
 			ft_putstr_fd("Error\n", 1);
 			exit(1);
 		}
+	}
 }
 
-int		ascii_to_integer(char *s)
+int	ascii_to_integer(char *s)
 {
 	int			sign;
 	int			cnt;
@@ -57,7 +59,7 @@ int		ascii_to_integer(char *s)
 
 	sign = 1;
 	while (*s == '\t' || *s == '\n' || *s == '\v'
-	|| *s == '\f' || *s == '\r' || *s == ' ')
+		|| *s == '\f' || *s == '\r' || *s == ' ')
 		s++;
 	if (*s == '-' || *s == '+')
 		if (*s++ == '-')
@@ -79,7 +81,6 @@ int		ascii_to_integer(char *s)
 
 void	duplicate_check(t_node *stack)
 {
-	t_node	*p;
 	int		*check;
 	int		i;
 	int		size;
@@ -87,20 +88,22 @@ void	duplicate_check(t_node *stack)
 	size = stack_size(stack);
 	set_idx(stack, size);
 	check = ft_calloc(size, sizeof(int));
-	p = stack;
-	while (p)
+	i = -1;
+	while (++i < size)
 	{
-		check[p->idx] += 1; 
-		if (!(p->next) || p->next == stack)
+		check[stack->idx] += 1;
+		if (!(stack->next))
 			break ;
-		p = p->next;
+		stack = stack->next;
 	}
 	i = -1;
 	while (++i < size)
+	{
 		if (check[i] >= 2)
 		{
 			ft_putstr_fd("Error\n", 1);
 			exit(1);
 		}
+	}
 	free(check);
 }

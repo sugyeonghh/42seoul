@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:23:44 by shong             #+#    #+#             */
-/*   Updated: 2021/07/14 23:02:11 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/04 03:12:04 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ void	add_stack(t_node **stack, int value)
 
 	if (!stack)
 		return ;
-	if (!(new = (t_node *)malloc(sizeof(t_node))))
+	new = (t_node *)malloc(sizeof(t_node));
+	if (!new)
 		ft_putstr_fd("Error\n", 1);
 	new->value = value;
 	new->idx = 0;
 	new->prev = NULL;
 	new->next = NULL;
-	if (!(last = last_node(*stack)))
+	last = last_node(*stack);
+	if (!last)
 		*stack = new;
 	else
 	{
@@ -36,7 +38,7 @@ void	add_stack(t_node **stack, int value)
 	}
 }
 
-int		stack_size(t_node *stack)
+int	stack_size(t_node *stack)
 {
 	int		size;
 	t_node	*p;
@@ -71,7 +73,7 @@ t_node	*last_node(t_node *stack)
 	return (p);
 }
 
-int		find_mid_pos(t_node *stack, int size)
+int	find_mid_pos(t_node *stack, int size)
 {
 	t_node	*p;
 	int		pos;
@@ -89,7 +91,7 @@ int		find_mid_pos(t_node *stack, int size)
 	return (pos);
 }
 
-int		find_min_pos(t_node *stack, int size)
+int	find_min_pos(t_node *stack, int size)
 {
 	t_node	*p;
 	int		pos;
