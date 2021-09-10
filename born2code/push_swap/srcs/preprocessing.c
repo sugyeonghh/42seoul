@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 05:23:14 by shong             #+#    #+#             */
-/*   Updated: 2021/09/04 04:03:36 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/10 22:02:54 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ t_node	*pre(int argc, char **argv)
 			allnum_check(tmp[j]);
 			add_stack(&res, ascii_to_integer(tmp[j]));
 		}
+		j = 0;
+		while (tmp[j])
+			free(tmp[j++]);
 		free(tmp);
 	}
 	duplicate_check(res);

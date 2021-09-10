@@ -1,16 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/08/29 16:19:29 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/04 03:41:42 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap/includes/push_swap.h"
+#include <stdio.h>
+
+void	display(t_node *stack, t_pivot pivot)
+{
+	t_node	*p;
+	t_node	*last;
+
+	p = stack;
+	last = last_node(stack);
+	if (p == NULL)
+	{
+		printf("NULL \n");
+		return ;
+	}
+	while (p)
+	{
+		printf("%d", p->value);
+		if (p == pivot.small)
+			printf("(s)");
+		else if (p == pivot.big)
+			printf("(b)");
+		if (p == last)
+			break ;
+		p = p->next;
+		printf(" -> ");
+	}
+	printf("\n");
+}
 
 int		main(int argc, char *argv[])
 {

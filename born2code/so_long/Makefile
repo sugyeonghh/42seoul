@@ -5,12 +5,10 @@
 #                                                     +:+ +:+         +:+      #
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/09/10 20:55:30 by shong            ###   ########.fr        #
+#    Created: 2021/09/06 18:30:08 by shong             #+#    #+#              #
+#    Updated: 2021/09/06 18:30:17 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME = push_swap
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -20,18 +18,10 @@ LIBFT = libft.a
 LIBS = -L./libft/ -lft 
 
 
-FILES = push_swap \
-		preprocessing \
-		stack \
-		pivot \
-		free_stack \
-		sorting/sort \
-		sorting/sort_under_four \
-		sorting/sort_over_four \
-		actions/swap \
-		actions/push \
-		actions/rotate \
-		actions/reverse_rotate \
+FILES = so_long \
+
+
+
 
 SRCS_DIR = ./srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

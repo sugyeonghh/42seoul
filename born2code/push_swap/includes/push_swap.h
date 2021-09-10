@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/09/04 03:29:59 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/10 22:06:53 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,8 @@ void			reverse_rotate(t_node **stack);
 void			rra(t_node **stack);
 void			rrb(t_node **stack);
 void			rrr(t_node **a, t_node **b);
+
+// free_stack
+void			free_stack(t_node **stack);
 
 #endif
