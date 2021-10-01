@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/09/10 22:52:51 by shong            ###   ########.fr       */
+/*   Created: 2020/12/21 16:32:04 by shong             #+#    #+#             */
+/*   Updated: 2020/12/28 19:54:17 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_strlen(const char *s)
 {
-	t_node	*a;
-	t_node	*b;
+	size_t	i;
 
-	if (argc < 2)
-		exit(1);
-	a = pre(argc, argv);
-	b = NULL;
-	if (stack_size(a) > 1)
-		sort(&a, &b, stack_size(a));
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	i = 0;
+	while (s[i] != 0)
+		i++;
+	return (i);
 }

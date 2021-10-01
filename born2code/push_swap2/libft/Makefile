@@ -5,59 +5,48 @@
 #                                                     +:+ +:+         +:+      #
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/09/29 18:43:12 by shong            ###   ########.fr        #
+#    Created: 2020/12/28 22:08:33 by shong             #+#    #+#              #
+#    Updated: 2021/09/04 03:39:10 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = libft.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
 RM = rm -f
 
-LIBFT = libft.a
-LIBS = -L./libft/ -lft 
+FILES = ft_putstr_fd \
+		ft_split \
+		ft_calloc \
+		ft_bzero \
+		ft_isdigit \
+		ft_strlcpy \
+		ft_strlen \
 
 
-FILES = push_swap \
-		preprocessing \
-		stack \
-		pivot \
-		free_stack \
-		sorting/sort \
-		sorting/sort_under_four \
-		sorting/sort_over_four \
-		actions/swap \
-		actions/push \
-		actions/rotate \
-		actions/reverse_rotate \
-
-SRCS_DIR = ./srcs/
+SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 
-OBJS_DIR = ./srcs/
+OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
+
 
 .c.o: $(SRCS)
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) -o $(NAME) $(OBJS) $(LIBS) -I./includes/
+$(NAME): $(OBJS)
+	$(AR) $@ $^
 
-all: $(NAME) $(LIBFT)
-
-$(LIBFT): libft/*.c
-	make -C libft
+all: $(NAME)
 
 clean:
-	make clean -C libft
 	$(RM) $(OBJS)
 
 fclean: clean
-	make fclean -C libft
 	$(RM) $(NAME)
 
 re: clean all
 
-.PHONY: all clean fclean re
+.PHONY: bonus all clean fclean re

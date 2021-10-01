@@ -6,11 +6,11 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/09/04 03:41:42 by shong            ###   ########.fr       */
+/*   Updated: 2021/09/11 04:36:00 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap/includes/push_swap.h"
+#include "../includes/push_swap.h"
 #include <stdio.h>
 
 void	display(t_node *stack, t_pivot pivot)
@@ -62,5 +62,8 @@ int		main(int argc, char *argv[])
 		printf(">> SUCCESS! \n");
 	else
 		printf(">> FAIL! \n");
+	free_stack(&a);
+	free_stack(&b);
+	system("leaks push_swap > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
 	return (0);
 }

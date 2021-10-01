@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/09/10 22:52:51 by shong            ###   ########.fr       */
+/*   Created: 2020/12/21 16:31:42 by shong             #+#    #+#             */
+/*   Updated: 2020/12/28 19:54:01 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_node	*a;
-	t_node	*b;
-
-	if (argc < 2)
-		exit(1);
-	a = pre(argc, argv);
-	b = NULL;
-	if (stack_size(a) > 1)
-		sort(&a, &b, stack_size(a));
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	if (s == 0 || fd == -1)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/09/10 22:52:51 by shong            ###   ########.fr       */
+/*   Created: 2020/12/21 16:32:35 by shong             #+#    #+#             */
+/*   Updated: 2021/09/04 03:47:58 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	main(int argc, char *argv[])
-{
-	t_node	*a;
-	t_node	*b;
+# include <unistd.h>
+# include <stdlib.h>
 
-	if (argc < 2)
-		exit(1);
-	a = pre(argc, argv);
-	b = NULL;
-	if (stack_size(a) > 1)
-		sort(&a, &b, stack_size(a));
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
-}
+size_t				ft_strlen(const char *s);
+size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
+int					ft_isdigit(int c);
+void				*ft_calloc(size_t count, size_t size);
+void				ft_bzero(void *s, size_t n);
+char				**ft_split(char const *s, char c);
+void				ft_putstr_fd(char *s, int fd);
+
+#endif

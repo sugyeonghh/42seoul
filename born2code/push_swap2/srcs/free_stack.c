@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/09/10 22:52:51 by shong            ###   ########.fr       */
+/*   Created: 2021/09/10 20:51:00 by shong             #+#    #+#             */
+/*   Updated: 2021/09/10 22:22:09 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	free_stack(t_node **stack)
 {
-	t_node	*a;
-	t_node	*b;
+	t_node	*p;
+	t_node	*last;
 
-	if (argc < 2)
-		exit(1);
-	a = pre(argc, argv);
-	b = NULL;
-	if (stack_size(a) > 1)
-		sort(&a, &b, stack_size(a));
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	if (!*stack)
+		return ;
+	p = (*stack);
+	last = last_node(*stack);
+	while (p != last)
+	{
+		p = p->next;
+		free(p->prev);
+	}
+	free(p);
 }
