@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/28 22:08:33 by shong             #+#    #+#              #
-#    Updated: 2021/09/04 03:39:10 by shong            ###   ########.fr        #
+#    Updated: 2021/10/02 19:35:58 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ FILES = ft_putstr_fd \
 		ft_isdigit \
 		ft_strlcpy \
 		ft_strlen \
+		ft_strncmp \
 
 
 SRCS_DIR = ./

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/10/02 20:04:05 by shong            ###   ########.fr       */
+/*   Created: 2020/12/22 16:19:47 by shong             #+#    #+#             */
+/*   Updated: 2021/10/02 20:05:32 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_node	*a;
-	t_node	*b;
+	unsigned char	*p1;
+	unsigned char	*p2;
+	size_t			i;
 
-	if (argc < 2)
-		exit(1);
-	a = pre(argc, argv);
-	b = NULL;
-	if (stack_size(a) > 1)
-		sort(&a, &b, stack_size(a));
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	i = 0;
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while (p1[i] && p2[i] && p1[i] == p2[i] && i < n - 1)
+		i++;
+	return (p1[i] - p2[i]);
 }

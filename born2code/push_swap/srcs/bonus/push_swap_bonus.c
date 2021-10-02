@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/10/02 20:04:05 by shong            ###   ########.fr       */
+/*   Updated: 2021/10/02 20:47:50 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	main(int argc, char *argv[])
 {
@@ -21,8 +21,11 @@ int	main(int argc, char *argv[])
 		exit(1);
 	a = pre(argc, argv);
 	b = NULL;
-	if (stack_size(a) > 1)
-		sort(&a, &b, stack_size(a));
+	checker(&a, &b);
+	if (is_sorted(a))
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

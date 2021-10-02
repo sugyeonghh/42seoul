@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/21 16:32:35 by shong             #+#    #+#             */
-/*   Updated: 2021/10/02 19:22:47 by shong            ###   ########.fr       */
+/*   Created: 2021/01/25 16:03:41 by shong             #+#    #+#             */
+/*   Updated: 2021/10/02 20:42:56 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <unistd.h>
 # include <stdlib.h>
+# define BUFFER_SIZE 100
 
+int		get_next_line(int fd, char **line);
+void	exception(int fd, char **line);
 size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-int		ft_isdigit(int c);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
-char	**ft_split(char const *s, char c);
-void	ft_putstr_fd(char *s, int fd);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_find_newline(const char *s);
+char	*ft_strjoin(char *s1, char const *s2);
+char	*ft_strdup(const char *s1);
+int		ft_separate(char **line, char **save, int rd_size);
 
 #endif

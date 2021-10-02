@@ -6,7 +6,7 @@
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:32:45 by shong             #+#    #+#             */
-/*   Updated: 2021/09/10 22:06:53 by shong            ###   ########.fr       */
+/*   Updated: 2021/10/02 19:20:47 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "../libft/libft.h"
+# include "../srcs/bonus/get_next_line/get_next_line.h"
 
 typedef struct s_node
 {
@@ -91,5 +92,9 @@ void			rrr(t_node **a, t_node **b);
 
 // free_stack
 void			free_stack(t_node **stack);
+
+// bonus
+void			checker(t_node **a, t_node **b);
+void			run_cmd(char *line, t_node **a, t_node **b);
 
 #endif
