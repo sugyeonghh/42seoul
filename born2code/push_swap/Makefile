@@ -6,7 +6,7 @@
 #    By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/12 19:18:17 by shong             #+#    #+#              #
-#    Updated: 2021/10/02 18:35:17 by shong            ###   ########.fr        #
+#    Updated: 2021/10/05 23:21:51 by shong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ FILES = push_swap \
 		actions/rotate \
 		actions/reverse_rotate \
 
-FILES_C = push_swap_bonus \
+FILES_C = push_swap_checker \
 		  checker \
 		  get_next_line/get_next_line \
 		  get_next_line/get_next_line_utils \
@@ -45,10 +45,10 @@ FILES_C = push_swap_bonus \
 		  ../sorting/sort \
 		  ../sorting/sort_under_four \
 		  ../sorting/sort_over_four \
-		  ../actions/swap \
-		  ../actions/push \
-		  ../actions/rotate \
-		  ../actions/reverse_rotate \
+		  actions/swap \
+		  actions/push \
+		  actions/rotate \
+		  actions/reverse_rotate \
 
 
 SRCS_DIR = ./srcs/
@@ -57,10 +57,10 @@ SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 OBJS_DIR = ./srcs/
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
-SRCS_C_DIR = ./srcs/bonus/
+SRCS_C_DIR = ./srcs/checker/
 SRCS_C = $(addprefix $(SRCS_C_DIR), $(addsuffix .c, $(FILES_C)))
 
-OBJS_C_DIR = ./srcs/bonus/
+OBJS_C_DIR = ./srcs/checker/
 OBJS_C = $(addprefix $(OBJS_C_DIR), $(addsuffix .o, $(FILES_C)))
 
 .c.o: $(SRCS) $(SRCS_C)

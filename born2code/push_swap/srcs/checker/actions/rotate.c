@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shong <shong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 17:18:46 by shong             #+#    #+#             */
-/*   Updated: 2021/10/02 20:47:50 by shong            ###   ########.fr       */
+/*   Created: 2021/07/02 17:41:32 by shong             #+#    #+#             */
+/*   Updated: 2021/10/05 23:21:17 by shong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	rotate(t_node **stack)
 {
-	t_node	*a;
-	t_node	*b;
-
-	if (argc < 2)
-		exit(1);
-	a = pre(argc, argv);
-	b = NULL;
-	checker(&a, &b);
-	if (is_sorted(a))
-		ft_putstr_fd("OK\n", 1);
+	if (!*stack || stack_size(*stack) == 1)
+		return ;
 	else
-		ft_putstr_fd("KO\n", 1);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+		*stack = (*stack)->next;
+}
+
+void	ra(t_node **stack)
+{
+	rotate(stack);
+}
+
+void	rb(t_node **stack)
+{
+	rotate(stack);
+}
+
+void	rr(t_node **a, t_node **b)
+{
+	rotate(a);
+	rotate(b);
 }
